@@ -1,7 +1,17 @@
+## tab_grid() ----
+
 #' **Create a full distribution frequency table for grid questions**
 #'
 #' @description
 #' This function produces a frequency table for grid survey questions, showing the full distribution across all response levels.
+#'
+#' - If only `x` is specified, the output is a full-distribution frequency table for each item in the grid question.
+#' - Use the `weight` argument to produce weighted tables; if omitted, results are unweighted.
+#' - Set `prop = TRUE` (default) to output percentages, or `prop = FALSE` to output counts.
+#' - Use the `sort` argument (`asc` or `desc`) to order rows based on top/bottom box scores defined by `top_bottom`. Set `sort = NULL` for no sorting.
+#' - Use the `top_bottom` argument (e.g., `T2`, `B3`) to specify how many top or bottom levels to use when sorting grid items.
+#' - Use the `round` argument to control decimal precision in percentage tables.
+#' - If `numeric = TRUE`, the function removes the base column and coerces values to numeric, making the output math-ready.
 #'
 #' @param data A data frame containing the survey data.
 #' @param x A variable prefix identifying the grid question (e.g., `Q3` for `Q3_1`, `Q3_2`, ...).
@@ -18,6 +28,7 @@
 #' @examples
 #' # Weighted frequency table of a grid question, sorted descending by T2, showing percentages
 #' tab_grid(data = survey_data, x = Q3, weight = weight_var, sort = desc, top_bottom = T2)
+#' @export
 
 tab_grid <- function(data, x, weight = NULL, prop = TRUE, sort = NULL, top_bottom = T2, round = 3, numeric = FALSE) {
   # Check required packages ----

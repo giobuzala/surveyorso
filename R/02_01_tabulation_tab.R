@@ -3,11 +3,11 @@
 #' @description
 #' This function produces a frequency table (for a single variable) or a crosstab (for two variables).
 #'
-#' - If only `x` is specified, the output is a frequency table.
-#' - If both `x` and `y` are specified, the output is a crosstab.
+#' - If only `x` is specified, the output is a frequency table of `x`.
+#' - If both `x` and `y` are specified, the output is a crosstab of `x` by `y`.
 #' - Use the `weight` argument to produce weighted tables; if omitted, results are unweighted.
 #' - Set `prop = TRUE` (default) to output percentages, or `prop = FALSE` to output counts.
-#' - Use the `round` argument to specify the number of decimal places in percentage tables.
+#' - Use the `round` argument to control decimal precision in percentage tables.
 #' - If `numeric = TRUE`, the function removes the total row and coerces all values to numeric, making the output math-ready (e.g., can be multiplied or added directly).
 #'
 #' @param data A data frame containing the survey data.

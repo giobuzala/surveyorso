@@ -37,6 +37,15 @@ A frequency table (full distribution across levels), as a data frame.
 }
 \description{
 This function produces a frequency table for grid survey questions, showing the full distribution across all response levels.
+\itemize{
+\item If only \code{x} is specified, the output is a full-distribution frequency table for each item in the grid question.
+\item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
+\item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
+\item Use the \code{sort} argument (\code{asc} or \code{desc}) to order rows based on top/bottom box scores defined by \code{top_bottom}. Set \code{sort = NULL} for no sorting.
+\item Use the \code{top_bottom} argument (e.g., \code{T2}, \code{B3}) to specify how many top or bottom levels to use when sorting grid items.
+\item Use the \code{round} argument to control decimal precision in percentage tables.
+\item If \code{numeric = TRUE}, the function removes the base column and coerces values to numeric, making the output math-ready.
+}
 }
 \examples{
 # Weighted frequency table of a grid question, sorted descending by T2, showing percentages

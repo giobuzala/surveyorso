@@ -43,6 +43,17 @@ A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified),
 }
 \description{
 This function produces a top- or bottom-box summary for grid survey questions.
+\itemize{
+\item If only \code{x} is specified, the output is a top- or bottom-box frequency table for each item in the grid question.
+\item If both \code{x} and \code{y} are specified, the output is a crosstab of the selected top/bottom box by \code{y}.
+\item Use the \code{top_bottom} argument (e.g., \code{T2}, \code{B3}) to define how many top or bottom response levels are included in the box.
+\item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
+\item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
+\item Use the \code{total} argument to include a total column when a \code{y} variable is specified. Ignored for one-way tables.
+\item Use the \code{sort} argument (\code{asc} or \code{desc}) to order rows by their box score. Set \code{sort = NULL} for no sorting.
+\item Use the \code{round} argument to control decimal precision in percentage tables.
+\item If \code{numeric = TRUE}, the function removes the base row and coerces all values to numeric, making the output math-ready.
+}
 }
 \examples{
 # Unweighted frequency table of a grid question, showing percentages of a top 2 box

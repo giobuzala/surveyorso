@@ -38,11 +38,11 @@ A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified),
 \description{
 This function produces a frequency table (for a single variable) or a crosstab (for two variables).
 \itemize{
-\item If only \code{x} is specified, the output is a frequency table.
-\item If both \code{x} and \code{y} are specified, the output is a crosstab.
+\item If only \code{x} is specified, the output is a frequency table of \code{x}.
+\item If both \code{x} and \code{y} are specified, the output is a crosstab of \code{x} by \code{y}.
 \item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
 \item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
-\item Use the \code{round} argument to specify the number of decimal places in percentage tables.
+\item Use the \code{round} argument to control decimal precision in percentage tables.
 \item If \code{numeric = TRUE}, the function removes the total row and coerces all values to numeric, making the output math-ready (e.g., can be multiplied or added directly).
 }
 }

@@ -41,11 +41,12 @@ A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified),
 \description{
 This function produces a frequency table or a crosstab for multiple response (pick-any) set questions.
 \itemize{
-\item If only \code{x} is ||specified, the output is a frequency table of the items in the multiple response set.
+\item If only \code{x} is specified, the output is a frequency table of the items in the multiple response set.
 \item If both \code{x} and \code{y} are specified, the output is a crosstab of the multiple response set by \code{y}.
 \item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
 \item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
 \item Use the \code{total} argument to add a total column when \code{y} is specified. Ignored for one-way tables.
+\item Use the \code{sort} argument (\code{desc} or \code{asc}) to order rows.  Set \code{sort = NULL} for no sorting.
 \item Use the \code{round} argument to control decimal precision in percentage tables.
 \item If \code{numeric = TRUE}, the function removes the base row and coerces values to numeric, making the output math-ready.
 }

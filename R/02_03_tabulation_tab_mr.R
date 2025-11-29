@@ -3,11 +3,12 @@
 #' @description
 #' This function produces a frequency table or a crosstab for multiple response (pick-any) set questions.
 #'
-#' - If only `x` is ||specified, the output is a frequency table of the items in the multiple response set.
+#' - If only `x` is specified, the output is a frequency table of the items in the multiple response set.
 #' - If both `x` and `y` are specified, the output is a crosstab of the multiple response set by `y`.
 #' - Use the `weight` argument to produce weighted tables; if omitted, results are unweighted.
 #' - Set `prop = TRUE` (default) to output percentages, or `prop = FALSE` to output counts.
 #' - Use the `total` argument to add a total column when `y` is specified. Ignored for one-way tables.
+#' - Use the `sort` argument (`desc` or `asc`) to order rows.  Set `sort = NULL` for no sorting.
 #' - Use the `round` argument to control decimal precision in percentage tables.
 #' - If `numeric = TRUE`, the function removes the base row and coerces values to numeric, making the output math-ready.
 #'
