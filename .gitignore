@@ -1,6 +1,16 @@
+# RStudio project-specific files
 .Rproj.user
 .Rhistory
 .RData
+
+# OAuth tokens and authentication caches
 .httr-oauth
+
+# macOS system metadata
 .DS_Store
+
+# Quarto cache/build folder
 .quarto
+
+# Local documentation containing sensitive information
+rstudio-surveyorso GitHub PAT.docx
