@@ -36,7 +36,7 @@ tab(
 A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
 }
 \description{
-This function produces frequency tables (for a single variable) or crosstabs (for two variables).
+This function produces a frequency table (for a single variable) or a crosstab (for two variables).
 \itemize{
 \item If only \code{x} is specified, the output is a frequency table.
 \item If both \code{x} and \code{y} are specified, the output is a crosstab.
