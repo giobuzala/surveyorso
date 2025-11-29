@@ -25,16 +25,20 @@ standardize(
 }
 \value{
 A data frame with standardized variables.
-If \code{keep_all = TRUE}, the full dataset is returned with standardized variables.
-If \code{keep_all = FALSE}, only standardized variables are returned.
+\itemize{
+\item If \code{keep_all = TRUE}, the full dataset is returned with standardized variables.
+\item If \code{keep_all = FALSE}, only standardized variables are returned.
+}
 }
 \description{
 This function standardizes variables to have mean = 0 and standard deviation = 1.
 }
 \details{
-Numeric variables are z-scored.
-Factor variables are converted to numeric order and then standardized.
-Levels in \code{outside_scale} are assigned to the midpoint of the valid range before transformation.
+\itemize{
+\item Numeric variables are z-scored.
+\item Factor variables are converted to numeric order and then standardized.
+\item Levels in \code{outside_scale} are assigned to the midpoint of the valid range before transformation.
+}
 }
 \examples{
 # Standardize Q1 variable set with

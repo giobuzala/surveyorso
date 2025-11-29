@@ -25,16 +25,20 @@ normalize(
 }
 \value{
 A data frame with normalized variables.
-If \code{keep_all = TRUE}, the full dataset is returned with normalized variables.
-If \code{keep_all = FALSE}, only normalized variables are returned.
+\itemize{
+\item If \code{keep_all = TRUE}, the full dataset is returned with normalized variables.
+\item If \code{keep_all = FALSE}, only normalized variables are returned.
+}
 }
 \description{
 This function rescales variables to the 0 to 1 range. It supports flipping of scales and preserves variable labels.
 }
 \details{
-Numeric variables are min–max scaled to 0 to 1.
-Factor variables are converted to numeric order and evenly spaced between 0 and 1.
-Levels listed in \code{outside_scale} (e.g., "Don't know") are assigned a value of 0.5.
+\itemize{
+\item Numeric variables are min–max scaled to 0 to 1.
+\item Factor variables are converted to numeric order and evenly spaced between 0 and 1.
+\item Levels listed in \code{outside_scale} (e.g., "Don't know") are assigned a value of 0.5.
+}
 }
 \examples{
 # Normalize Q1 and Q2 with flipping the scale order
