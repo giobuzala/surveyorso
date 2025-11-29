@@ -36,6 +36,7 @@
 #'
 #' # Weighted crosstab of Q2 by gender, showing counts and total column
 #' tab_mr(data = survey_data, x = Q2, y = gender, weight = weight_var, prop = FALSE, total = TRUE)
+#'
 #' @export
 
 tab_mr <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, sort = NULL, round = 3, numeric = FALSE) {

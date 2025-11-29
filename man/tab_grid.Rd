@@ -50,4 +50,5 @@ This function produces a frequency table for grid survey questions, showing the 
 \examples{
 # Weighted frequency table of a grid question, sorted descending by T2, showing percentages
 tab_grid(data = survey_data, x = Q3, weight = weight_var, sort = desc, top_bottom = T2)
+
 }

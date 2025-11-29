@@ -28,6 +28,7 @@
 #'
 #' # Weighted crosstab of Q1 by region, showing counts
 #' tab(data = survey_data, x = Q1, y = region, weight = weight_var, prop = FALSE)
+#'
 #' @export
 
 tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, round = 3, numeric = FALSE) {

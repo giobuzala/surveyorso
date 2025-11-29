@@ -52,4 +52,5 @@ tab(data = survey_data, x = Q1, weight = weight_var)
 
 # Weighted crosstab of Q1 by region, showing counts
 tab(data = survey_data, x = Q1, y = region, weight = weight_var, prop = FALSE)
+
 }

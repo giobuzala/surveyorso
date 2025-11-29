@@ -22,6 +22,7 @@
 #'
 #' # Weighted crosstabs of all multiple response sets by region, excluding Q99
 #' tab_mr_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
+#'
 #' @export
 
 tab_mr_all <- function(data, y = NULL, weight = NULL, exclude = NULL, ...) {

@@ -34,4 +34,5 @@ tab_grid_t_all(data = survey_data)
 
 # Weighted crosstabs of all grid questions by region, excluding Q99
 tab_grid_t_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
+
 }

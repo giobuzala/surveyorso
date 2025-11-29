@@ -61,4 +61,5 @@ tab_grid_t(data = survey_data, x = Q4, top_bottom = T2)
 
 # Weighted crosstab of a grid question by region, showing percentages of a bottom 2 box
 tab_grid_t(data = survey_data, x = Q4, y = region, top_bottom = B2, weight = weight_var)
+
 }

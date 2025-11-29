@@ -33,6 +33,7 @@
 #'
 #' # Weighted crosstab of a grid question by region, showing percentages of a bottom 2 box
 #' tab_grid_t(data = survey_data, x = Q4, y = region, top_bottom = B2, weight = weight_var)
+#'
 #' @export
 
 tab_grid_t <- function(data, x, y = NULL, top_bottom = T2, weight = NULL, prop = TRUE, total = TRUE, sort = NULL, round = 3, numeric = FALSE) {

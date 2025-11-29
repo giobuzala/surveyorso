@@ -21,6 +21,7 @@
 #'
 #' # Weighted frequency tables of all grid questions, excluding Q99
 #' tab_grid_all(data = survey_data, weight = weight_var, exclude = "Q99")
+#'
 #' @export
 
 tab_grid_all <- function(data, weight = NULL, exclude = NULL, ...) {

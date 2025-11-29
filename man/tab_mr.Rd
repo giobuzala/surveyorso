@@ -64,4 +64,5 @@ tab_mr(data = survey_data, x = Q2)
 
 # Weighted crosstab of Q2 by gender, showing counts and total column
 tab_mr(data = survey_data, x = Q2, y = gender, weight = weight_var, prop = FALSE, total = TRUE)
+
 }
