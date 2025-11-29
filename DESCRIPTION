@@ -1,0 +1,15 @@
+Package: surveyorso
+Title: A Comprehensive Toolkit for Survey Research and Analytics
+Version: 0.0.0.9000
+Authors@R: 
+    person(
+        given = "Giorgi",
+        family = "Buzaladze",
+        role = c("aut", "cre"),
+        email = "g.buzaladze@gmail.com"
+    )
+Description: surveyorso provides a unified set of tools for modern survey research workflows, including data cleaning, weighting, tabulation, open-ended coding, and advanced analytics. Functions are designed to reduce manual processing, standardize pipelines, and support reproducible insights across tracking, ad-hoc, and multi-market studies. The package integrates seamlessly with tidyverse conventions and supports automated reporting in Excel, Power BI, and other downstream applications.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
