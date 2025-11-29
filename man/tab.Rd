@@ -5,7 +5,7 @@
 \title{\strong{Create a frequency table or crosstab}}
 \usage{
 tab(
-  data = dat,
+  data,
   x,
   y = NULL,
   weight = NULL,
@@ -47,9 +47,9 @@ This function produces frequency tables (for a single variable) or crosstabs (fo
 }
 }
 \examples{
-# Weighted frequency table
+# Weighted frequency table of Q1, showing percentages
 tab(data = survey_data, x = Q1, weight = weight_var)
 
-# Crosstab of Q1 by region (weighted counts)
-tab(data = survey_data, x = Q1, y = REGION, weight = weight_var, prop = FALSE)
+# Weighted crosstab of Q1 by region, showing counts
+tab(data = survey_data, x = Q1, y = region, weight = weight_var, prop = FALSE)
 }

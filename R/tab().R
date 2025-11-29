@@ -18,49 +18,51 @@
 #' @param total Logical; if `TRUE` (default), adds a total column when `y` is specified. Ignored for single-variable tables.
 #' @param round Integer; number of decimal places for percentages. Defaults to `3`.
 #' @param numeric Logical; if `TRUE`, returns a data frame with numeric columns, with the n row removed. Defaults to `FALSE`.
-#' 
-#' @return A frequency table (if `y = NULL`) or a crosstab (if `y` is specified), as a data frame.
+#'
+#' @return
+#' A frequency table (if `y = NULL`) or a crosstab (if `y` is specified), as a data frame.
 #'
 #' @examples
-#' # Weighted frequency table
+#' # Weighted frequency table of Q1, showing percentages
 #' tab(data = survey_data, x = Q1, weight = weight_var)
 #'
-#' # Crosstab of Q1 by region (weighted counts)
-#' tab(data = survey_data, x = Q1, y = REGION, weight = weight_var, prop = FALSE)
+#' # Weighted crosstab of Q1 by region, showing counts
+#' tab(data = survey_data, x = Q1, y = region, weight = weight_var, prop = FALSE)
 #' @export
-tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, round = 3, numeric = FALSE) {
+
+tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, round = 3, numeric = FALSE) {
   # Check required packages ----
-  
+
   required_pkgs <- c("rlang", "tibble", "dplyr", "tidyr", "stringr", "crayon")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",
          paste(missing_pkgs, collapse = ", "), call. = FALSE)
   }
-  
+
   # Capture variable expressions ----
-  
+
   `%>%` <- dplyr::`%>%`
-  
+
   x_enquo <- rlang::enquo(x)
   y_enquo <- rlang::enquo(y)
   w_enquo <- rlang::enquo(weight)
-  
+
   x_name <- rlang::as_name(x_enquo)
   y_name <- if (rlang::quo_is_null(y_enquo)) NULL else rlang::as_name(y_enquo)
   weight_name <- if (rlang::quo_is_null(w_enquo)) NULL else rlang::as_name(w_enquo)
-  
+
   # Handle errors ----
-  
+
   # Ensure that specified variables exist
   cols <- colnames(data)
-  
+
   provided <- c(
     if (!rlang::quo_is_null(x_enquo)) x_name,
     if (!rlang::quo_is_null(y_enquo)) y_name,
     if (!rlang::quo_is_null(w_enquo)) weight_name
   )
-  
+
   missing <- setdiff(provided, cols)
   if (length(missing) > 0) {
     stop(
@@ -74,20 +76,20 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
       call. = FALSE
     )
   }
-  
+
   # If weight is provided, it must be numeric or logical
   if (!rlang::quo_is_null(w_enquo)) {
     if (!(is.numeric(data[[weight_name]]) || is.logical(data[[weight_name]]))) {
       stop(
-        paste0("Weight must be numeric or logical. Column '", weight_name, 
+        paste0("Weight must be numeric or logical. Column '", weight_name,
                "' is of type ", class(data[[weight_name]])[1], "."),
         call. = FALSE
       )
     }
   }
-  
+
   # Helpers ----
-  
+
   # If x or y is the weight column, duplicate to protect numeric weights
   if (!rlang::quo_is_null(w_enquo)) {
     if (!rlang::quo_is_null(x_enquo) && identical(x_name, weight_name)) {
@@ -96,7 +98,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
       x_enquo <- rlang::quo(!!rlang::sym(tmp_x))
       x_name <- tmp_x
     }
-    
+
     if (!rlang::quo_is_null(y_enquo) && identical(y_name, weight_name)) {
       tmp_yw <- "..y_fac.."
       data[[tmp_yw]] <- data[[y_name]]
@@ -104,7 +106,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
       y_name <- tmp_yw
     }
   }
-  
+
   # If x and y arguments are the same
   if (!rlang::quo_is_null(y_enquo) && identical(x_name, y_name)) {
     tmp_y <- "..y_dup.."
@@ -112,14 +114,14 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
     y_enquo <- rlang::quo(!!rlang::sym(tmp_y))
     y_name <- tmp_y
   }
-  
+
   # Helper function - coerce selected variables to factor if they're not factor
   .to_factor_once <- function(var) {
     if (is.factor(var)) return(var)
     if (inherits(var, "Date")) return(factor(format(var, "%Y-%m-%d")))
     factor(var)
   }
-  
+
   # Overwrite x and y as factors
   if (!is.null(x_name)) {
     if (is.character(data[[x_name]])) {
@@ -127,19 +129,19 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
     }
     data[[x_name]] <- .to_factor_once(data[[x_name]])
   }
-  
+
   if (!is.null(y_name)) {
     if (is.character(data[[y_name]])) {
       data[[y_name]] <- dplyr::na_if(stringr::str_trim(data[[y_name]]), "")
     }
     data[[y_name]] <- .to_factor_once(data[[y_name]])
   }
-  
+
   # Build tables ----
-  
+
   # Single variable
   if (rlang::quo_is_null(y_enquo)) {
-    
+
     # Counts
     if (!prop) {
       if (rlang::quo_is_null(w_enquo)) {
@@ -153,7 +155,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
                            `Unweighted Count` = sum(!is.na(data[[x_name]])))
           ) %>%
           tibble::column_to_rownames(var = x_name)
-        
+
       } else {
         # Weighted counts
         result <- data %>%
@@ -166,7 +168,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
           ) %>%
           tibble::column_to_rownames(var = x_name)
       }
-      
+
       # Percentages
     } else {
       if (rlang::quo_is_null(w_enquo)) {
@@ -187,7 +189,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
             )
           ) %>%
           tibble::column_to_rownames(var = x_name)
-        
+
       } else {
         # Weighted %
         result <- data %>%
@@ -208,10 +210,10 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
           tibble::column_to_rownames(var = x_name)
       }
     }
-    
+
     # Crosstab
   } else {
-    
+
     # Counts
     if (!prop) {
       if (rlang::quo_is_null(w_enquo)) {
@@ -227,7 +229,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
           ) %>%
           dplyr::mutate(across(-1, ~ round(.x))) %>%
           tibble::column_to_rownames(var = " ")
-        
+
       } else {
         # Weighted counts
         result <- data %>%
@@ -242,7 +244,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
           dplyr::mutate(dplyr::across(-1, ~ round(.x))) %>%
           tibble::column_to_rownames(var = " ")
       }
-      
+
       # Percentages
     } else {
       if (rlang::quo_is_null(w_enquo)) {
@@ -258,7 +260,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
           ) %>%
           dplyr::mutate(dplyr::across(-1, ~ round(.x))) %>%
           tibble::column_to_rownames(var = " ")
-        
+
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]]), !is.na(.data[[y_name]])) %>%
           dplyr::group_by(.data[[y_name]], .data[[x_name]], .drop = FALSE) %>%
@@ -276,7 +278,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
             ))
           ) %>%
           tibble::column_to_rownames(var = " ")
-        
+
       } else {
         # Weighted %
         totals <- data %>%
@@ -291,7 +293,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
           ) %>%
           dplyr::mutate(dplyr::across(-1, ~ round(.x))) %>%
           tibble::column_to_rownames(var = " ")
-        
+
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]]), !is.na(.data[[y_name]])) %>%
           dplyr::group_by(.data[[y_name]], .data[[x_name]], .drop = FALSE) %>%
@@ -312,7 +314,7 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
       }
     }
   }
-  
+
   # Add totals column if requested
   if (!rlang::quo_is_null(y_enquo) && total) {
     if (rlang::quo_is_null(w_enquo)) {
@@ -335,38 +337,38 @@ tab <- function(data = dat, x, y = NULL, weight = NULL, prop = TRUE, total = TRU
         total = FALSE
       )
     }
-    
+
     total_col <- total_tbl[, 1, drop = FALSE]
     result <- cbind(total_col, result)
   }
-  
+
   # Output ----
-  
+
   if (numeric) {
     result <- result %>%
       dplyr::slice_head(n = nrow(.) - 1) %>%
       dplyr::mutate(dplyr::across(everything(), ~ suppressWarnings(as.numeric(.x))))
   }
-  
+
   # Attach attributes for printing info message
   attr(result, "vars") <- list(
     x = as.character(x_name),
     y = if (!rlang::quo_is_null(y_enquo)) as.character(y_name) else NULL,
     weight = if (!rlang::quo_is_null(w_enquo)) as.character(weight_name) else NULL
   )
-  
+
   class(result) <- c("tab_result", class(result))
-  
-  result
+
+  return(result)
 }
 
 #' Custom print method for tab() results
 #' @export
 print.tab_result <- function(x, ...) {
   vars <- attr(x, "vars")
-  
+
   ital <- function(txt) if (requireNamespace("crayon", quietly = TRUE)) crayon::italic(txt) else txt
-  
+
   if (is.null(vars$y)) {
     if (!is.null(vars$weight)) {
       header <- paste0("Frequency table of ", ital(vars$x), ", weighted by ", ital(vars$weight), ".")
@@ -380,7 +382,7 @@ print.tab_result <- function(x, ...) {
       header <- paste0("Crosstab of ", ital(vars$x), " by ", ital(vars$y), ", unweighted.")
     }
   }
-  
+
   cat(header, "\n\n")
   NextMethod("print")
 }
