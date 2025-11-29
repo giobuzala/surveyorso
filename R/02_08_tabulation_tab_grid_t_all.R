@@ -5,8 +5,8 @@
 #' Optionally, you can specify a `y` variable for crosstabs and/or exclude prefixes from being tabulated.
 #' Additional arguments are passed to `tab_grid_t()`.
 #'
-#' Grid questions are detected automatically by prefixes before the first underscore (`_`).
-#' Multiple response (pick-any) sets are skipped, since those should be handled with `tab_mr()`.
+#' - Grid questions are detected automatically by prefixes before the first underscore (`_`).
+#' - Multiple response (pick-any) sets are skipped, since those should be handled with `tab_mr()`.
 #'
 #' @param data A data frame containing the survey data.
 #' @param y (Optional) A variable to cross-tabulate against a grid set. Defaults to `NULL`.

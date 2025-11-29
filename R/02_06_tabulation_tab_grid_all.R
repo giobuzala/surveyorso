@@ -4,8 +4,8 @@
 #' This function maps `tab_grid()` across all grid question prefixes in a data frame.
 #' Additional arguments are passed to `tab_grid()`.
 #'
-#' Grid questions are detected automatically by prefixes before the first underscore (`_`).
-#' Multiple response (pick-any) sets are skipped, since those should be handled with `tab_mr()`.
+#' - Grid questions are detected automatically by prefixes before the first underscore (`_`).
+#' - Multiple response (pick-any) sets are skipped, since those should be handled with `tab_mr()`.
 #'
 #' @param data A data frame containing the survey data.
 #' @param weight (Optional) A numeric weighting variable. If `NULL` (default), results are unweighted.
