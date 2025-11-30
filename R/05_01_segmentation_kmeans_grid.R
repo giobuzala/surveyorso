@@ -1,4 +1,4 @@
-#' **Run multiple k-means clustering models**
+#' **Run a grid of k-means clustering models**
 #'
 #' @description
 #' This function tests multiple k-means clustering solutions, optionally after applying principal component analysis (PCA) for dimensionality reduction.
@@ -21,11 +21,11 @@
 #'
 #' @examples
 #' # K-means runs (2-5 k-range) with and without PCA (2-4 PCs range)
-#' kmeans_results <- kmeans_multi(data = data_clust, pc_range = 2:4, k_range = 2:5)
+#' kmeans_results <- kmeans_grid(data = data_clust, pc_range = 2:4, k_range = 2:5)
 #'
 #' @export
 
-kmeans_multi <- function(data, pc_range = NULL, k_range = 2:6, id_var = Vrid) {
+kmeans_grid <- function(data, pc_range = NULL, k_range = 2:6, id_var = Vrid) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "dplyr", "cluster")

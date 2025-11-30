@@ -24,9 +24,10 @@ A named list of frequency tables or crosstabs, one per grid question prefix.
 This function maps \code{tab_grid_t()} across all grid question prefixes in a data frame.
 Optionally, you can specify a \code{y} variable for crosstabs and/or exclude prefixes from being tabulated.
 Additional arguments are passed to \code{tab_grid_t()}.
-
-Grid questions are detected automatically by prefixes before the first underscore (\verb{_}).
-Multiple response (pick-any) sets are skipped, since those should be handled with \code{tab_mr()}.
+\itemize{
+\item Grid questions are detected automatically by prefixes before the first underscore (\verb{_}).
+\item Multiple response (pick-any) sets are skipped, since those should be handled with \code{tab_mr()}.
+}
 }
 \examples{
 # Frequency tables of all grid questions

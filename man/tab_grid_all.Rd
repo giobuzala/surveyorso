@@ -21,9 +21,10 @@ A named list of grid frequency tables, one per grid questions prefix.
 \description{
 This function maps \code{tab_grid()} across all grid question prefixes in a data frame.
 Additional arguments are passed to \code{tab_grid()}.
-
-Grid questions are detected automatically by prefixes before the first underscore (\verb{_}).
-Multiple response (pick-any) sets are skipped, since those should be handled with \code{tab_mr()}.
+\itemize{
+\item Grid questions are detected automatically by prefixes before the first underscore (\verb{_}).
+\item Multiple response (pick-any) sets are skipped, since those should be handled with \code{tab_mr()}.
+}
 }
 \examples{
 # Unweighted frequency tables of all grid questions
