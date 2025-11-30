@@ -1,7 +1,7 @@
 #' **Process `code_gpt()` output to the dataset**
 #'
 #' @description
-#' This function takes a `code_gpt()` result table and merges binary Unchecked/Checked code variables back into the original survey dataset, preserving labels and metadata.
+#' This function takes a `code_gpt()` result table and merges binary `Unchecked`/`Checked` code variables back into the original survey dataset, preserving labels and metadata.
 #'
 #' @param coded_tbl A dataset returned by `code_gpt()` with coding results.
 #'

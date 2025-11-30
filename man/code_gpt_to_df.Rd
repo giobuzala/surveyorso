@@ -13,7 +13,7 @@ code_gpt_to_df(coded_tbl)
 The original dataset specified in \code{code_gpt()} with factor-coded variables (levels: \code{Unchecked}, \code{Checked}) appended for each code.
 }
 \description{
-This function takes a \code{code_gpt()} result table and merges binary Unchecked/Checked code variables back into the original survey dataset, preserving labels and metadata.
+This function takes a \code{code_gpt()} result table and merges binary \code{Unchecked}/\code{Checked} code variables back into the original survey dataset, preserving labels and metadata.
 }
 \details{
 Use this function immediately after \code{code_gpt()} in a pipeline, and save the result as a dataset.

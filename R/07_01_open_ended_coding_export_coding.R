@@ -19,7 +19,7 @@
 #'
 #' The workbook also includes Excel formulas for bin lookups, counts, and percentages, with conditional formatting to highlight invalid codes.
 #'
-#' **NOTE:** The formula in cell D2 of the first sheet must be filled down to the end of the column. Copying the formula programmatically in R causes Excel to become slow.
+#' **NOTE:** The formula in cell D2 of the first sheet must be filled down to the end of the column. Copying the formula programmatically in R causes Excel to slow down.
 #'
 #' @return
 #' One or more Excel workbooks saved to the specified path.

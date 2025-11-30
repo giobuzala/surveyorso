@@ -34,7 +34,7 @@ code_gpt(data = survey_data, x = Q5, theme_list = theme_list) %>%
   code_gpt_to_excel()
 }
 
-This will update the \verb{Q5 Coding Workbook} in place with the coded responses, which can then be imported using \code{import_coding()}.
+This will update \verb{Q5 Coding Workbook} in place with the coded responses, which can then be imported using \code{import_coding()}.
 }
 \examples{
 # Update "Q5 Coding Workbook" in place with the coded responses

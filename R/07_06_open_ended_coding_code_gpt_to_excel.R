@@ -21,7 +21,7 @@
 #'   code_gpt_to_excel()
 #' }
 #'
-#' This will update the `Q5 Coding Workbook` in place with the coded responses, which can then be imported using `import_coding()`.
+#' This will update `Q5 Coding Workbook` in place with the coded responses, which can then be imported using `import_coding()`.
 #'
 #' @return
 #' The Excel workbook is updated in place.
