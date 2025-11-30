@@ -8,9 +8,11 @@
 #' @param keep_all Logical; if `TRUE`, returns full dataset; if `FALSE`, returns only one-hot encoded variables.
 #'
 #' @details
-#' - Binary factors labeled "Checked"/"Unchecked" are encoded as a single 0–1 variable.
-#' - Multi-category factors are expanded into multiple one-hot encoded variables (one per level).
-#' - Original variable labels are preserved and extended to the generated one-hot encoded variables.
+#' Binary factors labeled `Unchecked`/`Checked` are encoded as a single 0–1 variable.
+#'
+#' Multi-category factors are expanded into multiple one-hot encoded variables (one per level).
+#'
+#' Original variable labels are preserved and extended to the generated one-hot encoded variables.
 #'
 #' @return
 #' - A data frame with one-hot encoded variables.

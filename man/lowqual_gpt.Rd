@@ -13,7 +13,7 @@ lowqual_gpt(data, x, batch_size = 100, model = "gpt-4o")
 
 \item{batch_size}{Integer; number of responses per API call. Defaults to \code{100}.}
 
-\item{model}{Character string; the OpenAI model to use. Defaults to \code{"gpt-4o"}.}
+\item{model}{Character string; the OpenAI model to use. Defaults to \verb{gpt-4o}.}
 }
 \value{
 A data frame with an additional variable named \code{x_lowqual} containing the classification results.

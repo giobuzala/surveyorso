@@ -13,7 +13,7 @@ combine(data, var_1, var_2, new_name = NULL, new_label = NULL)
 
 \item{var_2}{Second variable to merge.}
 
-\item{new_name}{Optional name for the new variable. If omitted, defaults to \code{"var_1_var_2_COMB"}.}
+\item{new_name}{Optional name for the new variable. If omitted, defaults to \code{var_1_var_2_COMB}.}
 
 \item{new_label}{Optional SPSS-style variable label. If omitted, the label from \code{var_1} is copied.}
 }

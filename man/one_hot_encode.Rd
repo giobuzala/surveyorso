@@ -24,11 +24,11 @@ one_hot_encode(data, vars, keep_all = TRUE)
 This function converts one or more categorical variables in a data frame into one-hot encoded variables.
 }
 \details{
-\itemize{
-\item Binary factors labeled "Checked"/"Unchecked" are encoded as a single 0–1 variable.
-\item Multi-category factors are expanded into multiple one-hot encoded variables (one per level).
-\item Original variable labels are preserved and extended to the generated one-hot encoded variables.
-}
+Binary factors labeled \code{Unchecked}/\code{Checked} are encoded as a single 0–1 variable.
+
+Multi-category factors are expanded into multiple one-hot encoded variables (one per level).
+
+Original variable labels are preserved and extended to the generated one-hot encoded variables.
 }
 \examples{
 # One-hot encode region and Q1_1 while keeping all original variables

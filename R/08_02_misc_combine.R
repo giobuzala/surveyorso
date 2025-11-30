@@ -7,7 +7,7 @@
 #' @param data A data frame containing the variables to combine.
 #' @param var_1 First variable to merge.
 #' @param var_2 Second variable to merge.
-#' @param new_name Optional name for the new variable. If omitted, defaults to `"var_1_var_2_COMB"`.
+#' @param new_name Optional name for the new variable. If omitted, defaults to `var_1_var_2_COMB`.
 #' @param new_label Optional SPSS-style variable label. If omitted, the label from `var_1` is copied.
 #'
 #' @details

@@ -7,7 +7,7 @@
 #' @param data A data frame containing the survey data.
 #' @param x The open-ended variable to evaluate for response quality.
 #' @param batch_size Integer; number of responses per API call. Defaults to `100`.
-#' @param model Character string; the OpenAI model to use. Defaults to `"gpt-4o"`.
+#' @param model Character string; the OpenAI model to use. Defaults to `gpt-4o`.
 #'
 #' @details
 #' Requires an OpenAI API key, which can be generated at `https://platform.openai.com/`, to be set in your R session using `Sys.setenv(OPENAI_API_KEY="...")`.
