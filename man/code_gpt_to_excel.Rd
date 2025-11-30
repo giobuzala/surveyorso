@@ -15,21 +15,30 @@ code_gpt_to_excel(coded_tbl, path = "Data")
 The Excel workbook is updated in place.
 }
 \description{
-This function inserts the coded responses (\code{Code(s)} column) from a coded GPT result table into the corresponding Excel coding workbook created for that question.
+This function inserts the coded responses (\code{Code(s)} column) from a \code{code_gpt()} result table into the corresponding Excel coding workbook created for that question.
 }
 \details{
-The function locates the workbook named \verb{X Coding Workbook.xlsx}, matches coded responses by respondent ID, and writes the codes into the \code{Code(s)} of the coding sheet.
-\code{import_coding()} function can be used to import and process the coding workbook.
+\itemize{
+\item The function locates the workbook named \verb{X Coding Workbook.xlsx}, matches coded responses by respondent ID, and writes the codes into the \code{Code(s)} of the coding sheet.
+\item \code{import_coding()} function can be used to import and process the coding workbook.
 }
-\examples{
-Use this function immediately after `code_gpt()` in a pipeline to write the coded results directly to the corresponding Excel workbook.
+
+Use this function immediately after \code{code_gpt()} in a pipeline to write the coded results directly to the corresponding Excel workbook.
+
 You do not need to save it as a dataset, as the workbook is updated in place.
 
 For example:
 
+\preformatted{
+code_gpt(data = survey_data, x = Q5, theme_list = theme_list) %>%
+  code_gpt_to_excel()
+}
+
+This will update the \verb{Q5 Coding Workbook} in place with the coded responses, which can then be imported using \code{import_coding()}.
+}
+\examples{
+# Update "Q5 Coding Workbook" in place with the coded responses
 code_gpt(data = survey_data, x = Q5, theme_list = theme_list) \%>\%
   code_gpt_to_excel()
-
-This will update the `Q5 Coding Workbook` in place with the coded responses, which can then be imported.
 
 }

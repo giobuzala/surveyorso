@@ -11,6 +11,7 @@
 #'
 #' @details
 #' Requires an OpenAI API key, which can be generated at `https://platform.openai.com/`, to be set in your R session using `Sys.setenv(OPENAI_API_KEY="...")`.
+#'
 #' The model classifies each response as low-quality (1) or valid (0).
 #'
 #' A response is flagged as low-quality if it is:
@@ -26,7 +27,7 @@
 #' A data frame with an additional variable named `x_lowqual` containing the classification results.
 #'
 #' @examples
-#' # Identify low-quality respondents in variable Q5
+#' # Identify low-quality respondents in question Q5
 #' data <- lowqual_gpt(data = survey_data, x = Q5)
 #'
 #' @export

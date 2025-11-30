@@ -1,28 +1,35 @@
 #' **Write `code_gpt()` results to Excel workbook**
 #'
 #' @description
-#' This function inserts the coded responses (`Code(s)` column) from a coded GPT result table into the corresponding Excel coding workbook created for that question.
+#' This function inserts the coded responses (`Code(s)` column) from a `code_gpt()` result table into the corresponding Excel coding workbook created for that question.
 #'
 #' @param coded_tbl A dataset returned by `code_gpt()` with coding results.
 #' @param path Directory containing the coding workbook. Defaults to `"Data"`.
 #'
 #' @details
-#' The function locates the workbook named `X Coding Workbook.xlsx`, matches coded responses by respondent ID, and writes the codes into the `Code(s)` of the coding sheet.
-#' `import_coding()` function can be used to import and process the coding workbook.
+#' - The function locates the workbook named `X Coding Workbook.xlsx`, matches coded responses by respondent ID, and writes the codes into the `Code(s)` of the coding sheet.
+#' - `import_coding()` function can be used to import and process the coding workbook.
+#'
+#' Use this function immediately after `code_gpt()` in a pipeline to write the coded results directly to the corresponding Excel workbook.
+#'
+#' You do not need to save it as a dataset, as the workbook is updated in place.
+#'
+#' For example:
+#'
+#' \preformatted{
+#' code_gpt(data = survey_data, x = Q5, theme_list = theme_list) %>%
+#'   code_gpt_to_excel()
+#' }
+#'
+#' This will update the `Q5 Coding Workbook` in place with the coded responses, which can then be imported using `import_coding()`.
 #'
 #' @return
 #' The Excel workbook is updated in place.
 #'
 #' @examples
-#' Use this function immediately after `code_gpt()` in a pipeline to write the coded results directly to the corresponding Excel workbook.
-#' You do not need to save it as a dataset, as the workbook is updated in place.
-#'
-#' For example:
-#'
+#' # Update "Q5 Coding Workbook" in place with the coded responses
 #' code_gpt(data = survey_data, x = Q5, theme_list = theme_list) %>%
 #'   code_gpt_to_excel()
-#'
-#' This will update the `Q5 Coding Workbook` in place with the coded responses, which can then be imported.
 #'
 #' @export
 

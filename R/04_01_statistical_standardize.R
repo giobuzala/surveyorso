@@ -10,11 +10,9 @@
 #' @param outside_scale Character vector of response levels (typically DK/PNS) that lie outside of the scale and should be treated as neutral midpoint (`0.5`).
 #'
 #' @details
-#' Numeric variables are z-scored.
-#'
-#' Factor variables are converted to numeric order and then standardized.
-#'
-#' Levels in `outside_scale` are assigned to the midpoint of the valid range before transformation.
+#' - Numeric variables are z-scored.
+#' - Factor variables are converted to numeric order and then standardized.
+#' - Levels in `outside_scale` are assigned to the midpoint of the valid range before transformation.
 #'
 #' @return
 #' A data frame with standardized variables.

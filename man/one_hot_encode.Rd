@@ -14,8 +14,8 @@ one_hot_encode(data, vars, keep_all = TRUE)
 \item{keep_all}{Logical; if \code{TRUE}, returns full dataset; if \code{FALSE}, returns only one-hot encoded variables.}
 }
 \value{
+A data frame with one-hot encoded variables.
 \itemize{
-\item A data frame with one-hot encoded variables.
 \item If \code{keep_all = TRUE}, the full dataset is returned with one-hot encoded variables replacing originals.
 \item If \code{keep_all = FALSE}, only one-hot encoded variables are returned.
 }
@@ -24,11 +24,11 @@ one_hot_encode(data, vars, keep_all = TRUE)
 This function converts one or more categorical variables in a data frame into one-hot encoded variables.
 }
 \details{
-Binary factors labeled \code{Unchecked}/\code{Checked} are encoded as a single 0–1 variable.
-
-Multi-category factors are expanded into multiple one-hot encoded variables (one per level).
-
-Original variable labels are preserved and extended to the generated one-hot encoded variables.
+\itemize{
+\item Binary factors labeled \code{Unchecked}/\code{Checked} are encoded as a single 0–1 variable.
+\item Multi-category factors are expanded into multiple one-hot encoded variables (one per level).
+\item Original variable labels are preserved and extended to the generated one-hot encoded variables.
+}
 }
 \examples{
 # One-hot encode region and Q1_1 while keeping all original variables

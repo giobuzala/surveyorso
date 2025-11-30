@@ -44,18 +44,17 @@ The output is a tibble with three columns:
 
 Standard codes are included automatically:
 \itemize{
-\item \code{97 = "Other"}
-\item \code{98 = "None"}
-\item \code{99 = "Don't know"}
+\item 97 = Other
+\item 98 = None
+\item 99 = Don't know
 }
+
+Use this function to create a \code{theme_list} for input into \code{code_gpt()}, or copy and paste it into an Excel coding workbook.
+
+\strong{Note:} It’s best to review and refine the generated codes before using them in \code{code_gpt()}.
 }
 \examples{
-Use this function to create a `theme_list` for input into `code_gpt()`, or copy and paste it into an Excel coding workbook.
-
-For example:
-
+# Generate a theme list for Q5
 theme_list <- theme_gpt(data = survey_data, x = Q5)
-
-Note: It’s best to review and refine the generated codes before using them in `code_gpt()`.
 
 }

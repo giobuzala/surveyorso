@@ -19,21 +19,20 @@
 #' - `Description`: A one-sentence summary describing the theme's content.
 #'
 #' Standard codes are included automatically:
-#' - `97 = "Other"`
-#' - `98 = "None"`
-#' - `99 = "Don't know"`
+#' - 97 = Other
+#' - 98 = None
+#' - 99 = Don't know
+#'
+#' Use this function to create a `theme_list` for input into `code_gpt()`, or copy and paste it into an Excel coding workbook.
+#'
+#' **Note:** It’s best to review and refine the generated codes before using them in `code_gpt()`.
 #'
 #' @return
 #' A table containing the generated thematic code list and their description. Standard codes (Other, None, Don't know) are included automatically.
 #'
 #' @examples
-#' Use this function to create a `theme_list` for input into `code_gpt()`, or copy and paste it into an Excel coding workbook.
-#'
-#' For example:
-#'
+#' # Generate a theme list for Q5
 #' theme_list <- theme_gpt(data = survey_data, x = Q5)
-#'
-#' Note: It’s best to review and refine the generated codes before using them in `code_gpt()`.
 #'
 #' @export
 

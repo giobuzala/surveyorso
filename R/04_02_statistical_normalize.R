@@ -10,11 +10,9 @@
 #' @param outside_scale Character vector of response levels (typically DK/PNS) that lie outside of the scale and should be treated as neutral midpoint (`0.5`).
 #'
 #' @details
-#' Numeric variables are min–max scaled to 0 to 1.
-#'
-#' Factor variables are converted to numeric order and evenly spaced between 0 and 1.
-#'
-#' Levels listed in `outside_scale` (e.g., "Don't know") are assigned a value of 0.5.
+#' - Numeric variables are min–max scaled to 0 to 1.
+#' - Factor variables are converted to numeric order and evenly spaced between 0 and 1.
+#' - Levels listed in `outside_scale` (e.g., "Don't know") are assigned a value of 0.5.
 #'
 #' @return
 #' A data frame with normalized variables.

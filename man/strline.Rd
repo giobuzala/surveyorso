@@ -18,9 +18,10 @@ The original data frame with an additional logical column named \code{prefix_str
 This function flags respondents who selected the same response across all items in a grid question.
 }
 \details{
-The function automatically detects all variables that begin with the specified prefix followed by an underscore.
-
-It excludes multiple response sets (e.g., binary 0/1 or Unchecked/Checked grids).
+\itemize{
+\item The function automatically detects all variables that begin with the specified prefix followed by an underscore.
+\item It excludes multiple response sets (e.g., binary 0/1 or Unchecked/Checked grids).
+}
 }
 \examples{
 # Identify straightliners for one grid question

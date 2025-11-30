@@ -24,6 +24,7 @@ Responses are evaluated for signs of gibberish, nonsense, random text, irrelevan
 }
 \details{
 Requires an OpenAI API key, which can be generated at \verb{https://platform.openai.com/}, to be set in your R session using \code{Sys.setenv(OPENAI_API_KEY="...")}.
+
 The model classifies each response as low-quality (1) or valid (0).
 
 A response is flagged as low-quality if it is:
@@ -38,7 +39,7 @@ A response is considered valid if it is interpretable, relevant, and meaningful.
 The function appends a new column to the dataset with the results.
 }
 \examples{
-# Identify low-quality respondents in variable Q5
+# Identify low-quality respondents in question Q5
 data <- lowqual_gpt(data = survey_data, x = Q5)
 
 }

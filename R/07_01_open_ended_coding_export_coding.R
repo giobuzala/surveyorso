@@ -15,20 +15,20 @@
 #' @details
 #' Each workbook includes:
 #' - A `Coding Workbook` sheet containing responses, along with columns for codes and bins.
-#' - A `Codes`` sheet pre-populated with standard codes (97 = "Other", 98 = "None", 99 = "Don't know") and space for custom codes.
+#' - A `Codes` sheet pre-populated with standard codes (97 = "Other", 98 = "None", 99 = "Don't know") and space for custom codes.
 #'
 #' The workbook also includes Excel formulas for bin lookups, counts, and percentages, with conditional formatting to highlight invalid codes.
 #'
-#' NOTE: The formula in cell D2 of the first sheet must be filled down to the end of the column. Copying the formula programmatically in R causes Excel to become slow.
+#' **NOTE:** The formula in cell D2 of the first sheet must be filled down to the end of the column. Copying the formula programmatically in R causes Excel to become slow.
 #'
 #' @return
-#' Saves one or more Excel workbooks to the specified path.
+#' One or more Excel workbooks saved to the specified path.
 #'
 #' @examples
-#' # Export coding workbook for variable Q5
+#' # Export coding workbook for Q5
 #' export_coding(data = survey_data, x = Q5)
 #'
-#' # Export separate coding workbooks for variables Q5 and Q6
+#' # Export separate coding workbooks for Q5 and Q6
 #' export_coding(data = survey_data, x = c(Q5, Q6))
 #'
 #' @export
