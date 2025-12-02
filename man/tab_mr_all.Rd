@@ -18,7 +18,7 @@ tab_mr_all(data, y = NULL, weight = NULL, exclude = NULL, ...)
 \item{...}{Additional arguments passed to \code{tab_mr()}.}
 }
 \value{
-A named list of frequency tables or crosstabs, one per multiple response set prefix.
+A named list of tables or crosstabs, one per multiple response set prefix.
 }
 \description{
 This function maps \code{tab_mr()} across all multiple response set question prefixes in a data frame.
@@ -28,10 +28,10 @@ Additional arguments are passed to \code{tab_mr()}.
 Multiple response sets are detected automatically by prefixes before the first underscore (\verb{_}).
 }
 \examples{
-# Unweighted frequency tables of all multiple response sets
+# Unweighted proportions tables of all multiple response sets
 tab_mr_all(data = survey_data)
 
-# Weighted crosstabs of all multiple response sets by region, excluding Q99
+# Weighted proportions crosstabs of all multiple response sets by region, excluding Q99
 tab_mr_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
 
 }

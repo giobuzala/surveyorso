@@ -1,32 +1,30 @@
-## tab_grid() ----
-
-#' **Create a full distribution frequency table for grid questions**
+#' **Create a full distribution table for grid questions**
 #'
 #' @description
-#' This function produces a frequency table for grid survey questions, showing the full distribution across all response levels.
+#' This function produces a table for grid survey questions, showing the full distribution across all response levels.
 #'
-#' - If only `x` is specified, the output is a full-distribution frequency table for each item in the grid question.
+#' - If only `x` is specified, the output is a full-distribution table for each item in the grid question.
 #' - Use the `weight` argument to produce weighted tables; if omitted, results are unweighted.
-#' - Set `prop = TRUE` (default) to output percentages, or `prop = FALSE` to output counts.
+#' - Set `prop = TRUE` (default) to output proportions, or `prop = FALSE` to output frequencies.
 #' - Use the `sort` argument (`asc` or `desc`) to order rows based on top/bottom box scores defined by `top_bottom`. Set `sort = NULL` for no sorting.
 #' - Use the `top_bottom` argument (e.g., `T2`, `B3`) to specify how many top or bottom levels to use when sorting grid items.
-#' - Use the `round` argument to control decimal precision in percentage tables.
+#' - Use the `round` argument to control decimal precision in proportions tables.
 #' - If `numeric = TRUE`, the function removes the base column and coerces values to numeric, making the output math-ready.
 #'
 #' @param data A data frame containing the survey data.
 #' @param x A variable prefix identifying the grid question (e.g., `Q3` for `Q3_1`, `Q3_2`, ...).
 #' @param weight (Optional) A numeric weighting variable. If `NULL` (default), results are unweighted.
-#' @param prop Logical; if `TRUE` (default), outputs percentages. If `FALSE`, outputs counts.
+#' @param prop Logical; if `TRUE` (default), outputs proportions. If `FALSE`, outputs frequencies.
 #' @param sort Sorting order for rows: `desc`, `asc`, or `NULL` (no sorting). Defaults to `NULL`.
 #' @param top_bottom A string of the form `TN` or `BN` indicating how many top or bottom levels should be used for sorting rows.
-#' @param round Integer; number of decimal places for percentages. Defaults to `3`.
+#' @param round Integer; number of decimal places for proportions. Defaults to `3`.
 #' @param numeric Logical; if `TRUE`, returns a data frame with numeric columns, with the n column removed. Defaults to `FALSE`.
 #'
 #' @return
-#' A frequency table (full distribution across levels), as a data frame.
+#' A table showing the full distribution across levels, as a data frame..
 #'
 #' @examples
-#' # Weighted frequency table of a grid question, sorted descending by T2, showing percentages
+#' # Weighted proportions table of a grid question, sorted descending by T2
 #' tab_grid(data = survey_data, x = Q3, weight = weight_var, sort = desc, top_bottom = T2)
 #'
 #' @export

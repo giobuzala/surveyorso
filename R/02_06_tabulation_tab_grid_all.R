@@ -9,17 +9,17 @@
 #'
 #' @param data A data frame containing the survey data.
 #' @param weight (Optional) A numeric weighting variable. If `NULL` (default), results are unweighted.
-#' @param exclude Variables or prefixes to exclude from tabulation. Defaults to `NULL`.  Always excludes `weight` (if specified) and any variable literally named "weight".
+#' @param exclude Variables or prefixes to exclude from tabulation. Defaults to `NULL`. Always excludes `weight` (if specified) and any variable literally named "weight".
 #' @param ... Additional arguments passed to `tab_grid()`.
 #'
 #' @return
-#' A named list of grid frequency tables, one per grid questions prefix.
+#' A named list of tables, one per grid question's prefix.
 #'
 #' @examples
-#' # Unweighted frequency tables of all grid questions
+#' # Unweighted proportions tables of all grid questions
 #' tab_grid_all(data = survey_data)
 #'
-#' # Weighted frequency tables of all grid questions, excluding Q99
+#' # Weighted proportions tables of all grid questions, excluding Q99
 #' tab_grid_all(data = survey_data, weight = weight_var, exclude = "Q99")
 #'
 #' @export

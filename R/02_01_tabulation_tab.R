@@ -1,32 +1,32 @@
-#' **Create a frequency table or crosstab**
+#' **Create a table or crosstab**
 #'
 #' @description
-#' This function produces a frequency table (for a single variable) or a crosstab (for two variables).
+#' This function produces a table (for a single variable) or a crosstab (for two variables).
 #'
-#' - If only `x` is specified, the output is a frequency table of `x`.
+#' - If only `x` is specified, the output is a table of `x`.
 #' - If both `x` and `y` are specified, the output is a crosstab of `x` by `y`.
 #' - Use the `weight` argument to produce weighted tables; if omitted, results are unweighted.
-#' - Set `prop = TRUE` (default) to output percentages, or `prop = FALSE` to output counts.
-#' - Use the `round` argument to control decimal precision in percentage tables.
+#' - Set `prop = TRUE` (default) to output proportions, or `prop = FALSE` to output frequencies.
+#' - Use the `round` argument to control decimal precision in proportions tables.
 #' - If `numeric = TRUE`, the function removes the total row and coerces all values to numeric, making the output math-ready (e.g., can be multiplied or added directly).
 #'
 #' @param data A data frame containing the survey data.
-#' @param x The variable for which to compute the frequency table (or the row variable in a crosstab).
+#' @param x The variable for which to compute the table (or the row variable in a crosstab).
 #' @param y (Optional) The variable to cross-tabulate against `x`. Defaults to `NULL`.
 #' @param weight (Optional) A numeric weighting variable. If `NULL` (default), results are unweighted.
-#' @param prop Logical; if `TRUE` (default), outputs percentages. If `FALSE`, outputs counts.
+#' @param prop Logical; if `TRUE` (default), outputs proportions If `FALSE`, outputs frequencies.
 #' @param total Logical; if `TRUE` (default), adds a total column when `y` is specified. Ignored for single-variable tables.
-#' @param round Integer; number of decimal places for percentages. Defaults to `3`.
+#' @param round Integer; number of decimal places for proportions. Defaults to `3`.
 #' @param numeric Logical; if `TRUE`, returns a data frame with numeric columns, with the n row removed. Defaults to `FALSE`.
 #'
 #' @return
-#' A frequency table (if `y = NULL`) or a crosstab (if `y` is specified), as a data frame.
+#' A table (if `y = NULL`) or a crosstab (if `y` is specified), as a data frame.
 #'
 #' @examples
-#' # Weighted frequency table of Q1, showing percentages
+#' # Weighted proportions table of Q1
 #' tab(data = survey_data, x = Q1, weight = weight_var)
 #'
-#' # Weighted crosstab of Q1 by region, showing counts
+#' # Weighted frequency crosstab of Q1 by region
 #' tab(data = survey_data, x = Q1, y = region, weight = weight_var, prop = FALSE)
 #'
 #' @export

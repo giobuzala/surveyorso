@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_01_tabulation_tab.R
 \name{tab}
 \alias{tab}
-\title{\strong{Create a frequency table or crosstab}}
+\title{\strong{Create a table or crosstab}}
 \usage{
 tab(
   data,
@@ -18,39 +18,39 @@ tab(
 \arguments{
 \item{data}{A data frame containing the survey data.}
 
-\item{x}{The variable for which to compute the frequency table (or the row variable in a crosstab).}
+\item{x}{The variable for which to compute the table (or the row variable in a crosstab).}
 
 \item{y}{(Optional) The variable to cross-tabulate against \code{x}. Defaults to \code{NULL}.}
 
 \item{weight}{(Optional) A numeric weighting variable. If \code{NULL} (default), results are unweighted.}
 
-\item{prop}{Logical; if \code{TRUE} (default), outputs percentages. If \code{FALSE}, outputs counts.}
+\item{prop}{Logical; if \code{TRUE} (default), outputs proportions If \code{FALSE}, outputs frequencies.}
 
 \item{total}{Logical; if \code{TRUE} (default), adds a total column when \code{y} is specified. Ignored for single-variable tables.}
 
-\item{round}{Integer; number of decimal places for percentages. Defaults to \code{3}.}
+\item{round}{Integer; number of decimal places for proportions. Defaults to \code{3}.}
 
 \item{numeric}{Logical; if \code{TRUE}, returns a data frame with numeric columns, with the n row removed. Defaults to \code{FALSE}.}
 }
 \value{
-A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
+A table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
 }
 \description{
-This function produces a frequency table (for a single variable) or a crosstab (for two variables).
+This function produces a table (for a single variable) or a crosstab (for two variables).
 \itemize{
-\item If only \code{x} is specified, the output is a frequency table of \code{x}.
+\item If only \code{x} is specified, the output is a table of \code{x}.
 \item If both \code{x} and \code{y} are specified, the output is a crosstab of \code{x} by \code{y}.
 \item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
-\item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
-\item Use the \code{round} argument to control decimal precision in percentage tables.
+\item Set \code{prop = TRUE} (default) to output proportions, or \code{prop = FALSE} to output frequencies.
+\item Use the \code{round} argument to control decimal precision in proportions tables.
 \item If \code{numeric = TRUE}, the function removes the total row and coerces all values to numeric, making the output math-ready (e.g., can be multiplied or added directly).
 }
 }
 \examples{
-# Weighted frequency table of Q1, showing percentages
+# Weighted proportions table of Q1
 tab(data = survey_data, x = Q1, weight = weight_var)
 
-# Weighted crosstab of Q1 by region, showing counts
+# Weighted frequency crosstab of Q1 by region
 tab(data = survey_data, x = Q1, y = region, weight = weight_var, prop = FALSE)
 
 }

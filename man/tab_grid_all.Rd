@@ -11,12 +11,12 @@ tab_grid_all(data, weight = NULL, exclude = NULL, ...)
 
 \item{weight}{(Optional) A numeric weighting variable. If \code{NULL} (default), results are unweighted.}
 
-\item{exclude}{Variables or prefixes to exclude from tabulation. Defaults to \code{NULL}.  Always excludes \code{weight} (if specified) and any variable literally named "weight".}
+\item{exclude}{Variables or prefixes to exclude from tabulation. Defaults to \code{NULL}. Always excludes \code{weight} (if specified) and any variable literally named "weight".}
 
 \item{...}{Additional arguments passed to \code{tab_grid()}.}
 }
 \value{
-A named list of grid frequency tables, one per grid questions prefix.
+A named list of tables, one per grid question's prefix.
 }
 \description{
 This function maps \code{tab_grid()} across all grid question prefixes in a data frame.
@@ -27,10 +27,10 @@ Additional arguments are passed to \code{tab_grid()}.
 }
 }
 \examples{
-# Unweighted frequency tables of all grid questions
+# Unweighted proportions tables of all grid questions
 tab_grid_all(data = survey_data)
 
-# Weighted frequency tables of all grid questions, excluding Q99
+# Weighted proportions tables of all grid questions, excluding Q99
 tab_grid_all(data = survey_data, weight = weight_var, exclude = "Q99")
 
 }

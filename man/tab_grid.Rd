@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_05_tabulation_tab_grid.R
 \name{tab_grid}
 \alias{tab_grid}
-\title{\strong{Create a full distribution frequency table for grid questions}}
+\title{\strong{Create a full distribution table for grid questions}}
 \usage{
 tab_grid(
   data,
@@ -22,33 +22,33 @@ tab_grid(
 
 \item{weight}{(Optional) A numeric weighting variable. If \code{NULL} (default), results are unweighted.}
 
-\item{prop}{Logical; if \code{TRUE} (default), outputs percentages. If \code{FALSE}, outputs counts.}
+\item{prop}{Logical; if \code{TRUE} (default), outputs proportions. If \code{FALSE}, outputs frequencies.}
 
 \item{sort}{Sorting order for rows: \code{desc}, \code{asc}, or \code{NULL} (no sorting). Defaults to \code{NULL}.}
 
 \item{top_bottom}{A string of the form \code{TN} or \code{BN} indicating how many top or bottom levels should be used for sorting rows.}
 
-\item{round}{Integer; number of decimal places for percentages. Defaults to \code{3}.}
+\item{round}{Integer; number of decimal places for proportions. Defaults to \code{3}.}
 
 \item{numeric}{Logical; if \code{TRUE}, returns a data frame with numeric columns, with the n column removed. Defaults to \code{FALSE}.}
 }
 \value{
-A frequency table (full distribution across levels), as a data frame.
+A table showing the full distribution across levels, as a data frame..
 }
 \description{
-This function produces a frequency table for grid survey questions, showing the full distribution across all response levels.
+This function produces a table for grid survey questions, showing the full distribution across all response levels.
 \itemize{
-\item If only \code{x} is specified, the output is a full-distribution frequency table for each item in the grid question.
+\item If only \code{x} is specified, the output is a full-distribution table for each item in the grid question.
 \item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
-\item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
+\item Set \code{prop = TRUE} (default) to output proportions, or \code{prop = FALSE} to output frequencies.
 \item Use the \code{sort} argument (\code{asc} or \code{desc}) to order rows based on top/bottom box scores defined by \code{top_bottom}. Set \code{sort = NULL} for no sorting.
 \item Use the \code{top_bottom} argument (e.g., \code{T2}, \code{B3}) to specify how many top or bottom levels to use when sorting grid items.
-\item Use the \code{round} argument to control decimal precision in percentage tables.
+\item Use the \code{round} argument to control decimal precision in proportions tables.
 \item If \code{numeric = TRUE}, the function removes the base column and coerces values to numeric, making the output math-ready.
 }
 }
 \examples{
-# Weighted frequency table of a grid question, sorted descending by T2, showing percentages
+# Weighted proportions table of a grid question, sorted descending by T2
 tab_grid(data = survey_data, x = Q3, weight = weight_var, sort = desc, top_bottom = T2)
 
 }

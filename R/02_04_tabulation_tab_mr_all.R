@@ -14,13 +14,13 @@
 #' @param ... Additional arguments passed to `tab_mr()`.
 #'
 #' @return
-#' A named list of frequency tables or crosstabs, one per multiple response set prefix.
+#' A named list of tables or crosstabs, one per multiple response set prefix.
 #'
 #' @examples
-#' # Unweighted frequency tables of all multiple response sets
+#' # Unweighted proportions tables of all multiple response sets
 #' tab_mr_all(data = survey_data)
 #'
-#' # Weighted crosstabs of all multiple response sets by region, excluding Q99
+#' # Weighted proportions crosstabs of all multiple response sets by region, excluding Q99
 #' tab_mr_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
 #'
 #' @export

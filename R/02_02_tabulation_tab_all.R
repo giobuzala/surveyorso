@@ -11,13 +11,13 @@
 #' @param ... Additional arguments passed to `tab()`.
 #'
 #' @return
-#' A named list of frequency tables or crosstabs, one per variable.
+#' A named list of tables or crosstabs, one per variable.
 #'
 #' @examples
-#' # Unweighted frequency tables of all questions
+#' # Unweighted proportions tables of all questions
 #' tab_all(data = survey_data)
 #'
-#' # Weighted crosstabs of all questions by region, excluding Q99
+#' # Weighted proportions crosstabs of all questions by region, excluding Q99
 #' tab_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
 #'
 #' @export

@@ -15,13 +15,13 @@
 #' @param ... Additional arguments passed to `tab_grid_t()`.
 #'
 #' @return
-#' A named list of frequency tables or crosstabs, one per grid question prefix.
+#' A named list of tables or crosstabs, one per grid question prefix.
 #'
 #' @examples
-#' # Frequency tables of all grid questions
+#' # Unweighted proportions tables of all grid questions
 #' tab_grid_t_all(data = survey_data)
 #'
-#' # Weighted crosstabs of all grid questions by region, excluding Q99
+#' # Weighted proportions crosstabs of all grid questions by region, excluding Q99
 #' tab_grid_t_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
 #'
 #' @export

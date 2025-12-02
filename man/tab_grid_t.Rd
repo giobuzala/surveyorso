@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_07_tabulation_tab_grid_t.R
 \name{tab_grid_t}
 \alias{tab_grid_t}
-\title{\strong{Create a top/bottom frequency table or crosstab for grid questions}}
+\title{\strong{Create a top/bottom table or crosstab for grid questions}}
 \usage{
 tab_grid_t(
   data,
@@ -28,38 +28,38 @@ tab_grid_t(
 
 \item{weight}{(Optional) A numeric weighting variable. If \code{NULL} (default), results are unweighted.}
 
-\item{prop}{Logical; if \code{TRUE} (default), outputs percentages. If \code{FALSE}, outputs counts.}
+\item{prop}{Logical; if \code{TRUE} (default), outputs proportions. If \code{FALSE}, outputs frequencies.}
 
 \item{total}{Logical; if \code{TRUE} (default), adds a total column when \code{y} is specified.}
 
 \item{sort}{Sorting order for rows: \code{desc}, \code{asc}, or \code{NULL} (no sorting). Defaults to \code{NULL}.}
 
-\item{round}{Integer; number of decimal places for percentages. Defaults to \code{3}.}
+\item{round}{Integer; number of decimal places for proportions. Defaults to \code{3}.}
 
 \item{numeric}{Logical; if \code{TRUE}, returns a data frame with numeric columns, with the base n row removed. Defaults to \code{FALSE}.}
 }
 \value{
-A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
+A table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
 }
 \description{
 This function produces a top- or bottom-box summary for grid survey questions.
 \itemize{
-\item If only \code{x} is specified, the output is a top- or bottom-box frequency table for each item in the grid question.
+\item If only \code{x} is specified, the output is a top- or bottom-box table for each item in the grid question.
 \item If both \code{x} and \code{y} are specified, the output is a crosstab of the selected top/bottom box by \code{y}.
 \item Use the \code{top_bottom} argument (e.g., \code{T2}, \code{B3}) to define how many top or bottom response levels are included in the box.
 \item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
-\item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
+\item Set \code{prop = TRUE} (default) to output proportions, or \code{prop = FALSE} to output frequencies.
 \item Use the \code{total} argument to include a total column when a \code{y} variable is specified. Ignored for one-way tables.
 \item Use the \code{sort} argument (\code{asc} or \code{desc}) to order rows by their box score. Set \code{sort = NULL} for no sorting.
-\item Use the \code{round} argument to control decimal precision in percentage tables.
+\item Use the \code{round} argument to control decimal precision in proportions tables.
 \item If \code{numeric = TRUE}, the function removes the base row and coerces all values to numeric, making the output math-ready.
 }
 }
 \examples{
-# Unweighted frequency table of a grid question, showing percentages of a top 2 box
+# Unweighted proportions table of a grid question, showing top 2 box
 tab_grid_t(data = survey_data, x = Q4, top_bottom = T2)
 
-# Weighted crosstab of a grid question by region, showing percentages of a bottom 2 box
+# Weighted proportions crosstab of a grid question by region, showing bottom 2 box
 tab_grid_t(data = survey_data, x = Q4, y = region, top_bottom = B2, weight = weight_var)
 
 }

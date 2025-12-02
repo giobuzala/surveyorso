@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_03_tabulation_tab_mr.R
 \name{tab_mr}
 \alias{tab_mr}
-\title{\strong{Create a multiple response (pick-any) set frequency table or crosstab}}
+\title{\strong{Create a multiple response (pick-any) set table or crosstab}}
 \usage{
 tab_mr(
   data,
@@ -25,26 +25,26 @@ tab_mr(
 
 \item{weight}{(Optional) A numeric weighting variable. If \code{NULL} (default), results are unweighted.}
 
-\item{prop}{Logical; if \code{TRUE} (default), outputs percentages. If \code{FALSE}, outputs counts.}
+\item{prop}{Logical; if \code{TRUE} (default), outputs proportions. If \code{FALSE}, outputs frequencies.}
 
 \item{total}{Logical; if \code{TRUE} (default), adds a total column when \code{y} is specified. Ignored for single-variable tables.}
 
 \item{sort}{Sorting order for rows: \code{desc}, \code{asc}, or \code{NULL} (no sorting). Defaults to \code{NULL}.}
 
-\item{round}{Integer; number of decimal places for percentages. Defaults to \code{3}.}
+\item{round}{Integer; number of decimal places for proportions. Defaults to \code{3}.}
 
 \item{numeric}{Logical; if \code{TRUE}, returns a data frame with numeric columns, with the n row removed. Defaults to \code{FALSE}.}
 }
 \value{
-A frequency table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
+A table (if \code{y = NULL}) or a crosstab (if \code{y} is specified), as a data frame.
 }
 \description{
-This function produces a frequency table or a crosstab for multiple response (pick-any) set questions.
+This function produces a table or a crosstab for multiple response (pick-any) set questions.
 \itemize{
-\item If only \code{x} is specified, the output is a frequency table of the items in the multiple response set.
+\item If only \code{x} is specified, the output is a table of the items in the multiple response set.
 \item If both \code{x} and \code{y} are specified, the output is a crosstab of the multiple response set by \code{y}.
 \item Use the \code{weight} argument to produce weighted tables; if omitted, results are unweighted.
-\item Set \code{prop = TRUE} (default) to output percentages, or \code{prop = FALSE} to output counts.
+\item Set \code{prop = TRUE} (default) to output proportions, or \code{prop = FALSE} to output frequencies
 \item Use the \code{total} argument to add a total column when \code{y} is specified. Ignored for one-way tables.
 \item Use the \code{sort} argument (\code{desc} or \code{asc}) to order rows.  Set \code{sort = NULL} for no sorting.
 \item Use the \code{round} argument to control decimal precision in percentage tables.
@@ -59,10 +59,10 @@ Supported coding schemes for multiple response items include:
 }
 }
 \examples{
-# Unweighted frequency table of a multiple response set, showing percentages
+# Unweighted proportions table of a multiple response set
 tab_mr(data = survey_data, x = Q2)
 
-# Weighted crosstab of Q2 by gender, showing counts and total column
+# Weighted frequency crosstab of Q2 by gender, showing total column
 tab_mr(data = survey_data, x = Q2, y = gender, weight = weight_var, prop = FALSE, total = TRUE)
 
 }

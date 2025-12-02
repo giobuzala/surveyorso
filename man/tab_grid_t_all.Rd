@@ -18,7 +18,7 @@ tab_grid_t_all(data, y = NULL, weight = NULL, exclude = NULL, ...)
 \item{...}{Additional arguments passed to \code{tab_grid_t()}.}
 }
 \value{
-A named list of frequency tables or crosstabs, one per grid question prefix.
+A named list of tables or crosstabs, one per grid question prefix.
 }
 \description{
 This function maps \code{tab_grid_t()} across all grid question prefixes in a data frame.
@@ -30,10 +30,10 @@ Additional arguments are passed to \code{tab_grid_t()}.
 }
 }
 \examples{
-# Frequency tables of all grid questions
+# Unweighted proportions tables of all grid questions
 tab_grid_t_all(data = survey_data)
 
-# Weighted crosstabs of all grid questions by region, excluding Q99
+# Weighted proportions crosstabs of all grid questions by region, excluding Q99
 tab_grid_t_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
 
 }

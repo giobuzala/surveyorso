@@ -16,7 +16,7 @@ tab_all(data, y = NULL, weight = NULL, exclude = NULL, ...)
 \item{...}{Additional arguments passed to \code{tab()}.}
 }
 \value{
-A named list of frequency tables or crosstabs, one per variable.
+A named list of tables or crosstabs, one per variable.
 }
 \description{
 This function maps \code{tab()} across all variables in a data frame.
@@ -24,10 +24,10 @@ Optionally, you can specify a \code{y} variable for crosstabs and/or exclude var
 Additional arguments are passed to \code{tab()}.
 }
 \examples{
-# Unweighted frequency tables of all questions
+# Unweighted proportions tables of all questions
 tab_all(data = survey_data)
 
-# Weighted crosstabs of all questions by region, excluding Q99
+# Weighted proportions crosstabs of all questions by region, excluding Q99
 tab_all(data = survey_data, y = region, weight = weight_var, exclude = "Q99")
 
 }

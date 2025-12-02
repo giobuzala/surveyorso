@@ -1,12 +1,12 @@
-#' **Create a multiple response (pick-any) set frequency table or crosstab**
+#' **Create a multiple response (pick-any) set table or crosstab**
 #'
 #' @description
-#' This function produces a frequency table or a crosstab for multiple response (pick-any) set questions.
+#' This function produces a table or a crosstab for multiple response (pick-any) set questions.
 #'
-#' - If only `x` is specified, the output is a frequency table of the items in the multiple response set.
+#' - If only `x` is specified, the output is a table of the items in the multiple response set.
 #' - If both `x` and `y` are specified, the output is a crosstab of the multiple response set by `y`.
 #' - Use the `weight` argument to produce weighted tables; if omitted, results are unweighted.
-#' - Set `prop = TRUE` (default) to output percentages, or `prop = FALSE` to output counts.
+#' - Set `prop = TRUE` (default) to output proportions, or `prop = FALSE` to output frequencies
 #' - Use the `total` argument to add a total column when `y` is specified. Ignored for one-way tables.
 #' - Use the `sort` argument (`desc` or `asc`) to order rows.  Set `sort = NULL` for no sorting.
 #' - Use the `round` argument to control decimal precision in percentage tables.
@@ -21,20 +21,20 @@
 #' @param x A variable prefix identifying the multiple response set (e.g., `Q2` for `Q2_1`, `Q2_2`, ...).
 #' @param y (Optional) A variable to cross-tabulate against the multiple response set. Defaults to `NULL`.
 #' @param weight (Optional) A numeric weighting variable. If `NULL` (default), results are unweighted.
-#' @param prop Logical; if `TRUE` (default), outputs percentages. If `FALSE`, outputs counts.
+#' @param prop Logical; if `TRUE` (default), outputs proportions. If `FALSE`, outputs frequencies.
 #' @param total Logical; if `TRUE` (default), adds a total column when `y` is specified. Ignored for single-variable tables.
 #' @param sort Sorting order for rows: `desc`, `asc`, or `NULL` (no sorting). Defaults to `NULL`.
-#' @param round Integer; number of decimal places for percentages. Defaults to `3`.
+#' @param round Integer; number of decimal places for proportions. Defaults to `3`.
 #' @param numeric Logical; if `TRUE`, returns a data frame with numeric columns, with the n row removed. Defaults to `FALSE`.
 #'
 #' @return
-#' A frequency table (if `y = NULL`) or a crosstab (if `y` is specified), as a data frame.
+#' A table (if `y = NULL`) or a crosstab (if `y` is specified), as a data frame.
 #'
 #' @examples
-#' # Unweighted frequency table of a multiple response set, showing percentages
+#' # Unweighted proportions table of a multiple response set
 #' tab_mr(data = survey_data, x = Q2)
 #'
-#' # Weighted crosstab of Q2 by gender, showing counts and total column
+#' # Weighted frequency crosstab of Q2 by gender, showing total column
 #' tab_mr(data = survey_data, x = Q2, y = gender, weight = weight_var, prop = FALSE, total = TRUE)
 #'
 #' @export
@@ -190,7 +190,7 @@ tab_mr <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, 
       dplyr::select(Label, val) %>%
       tibble::column_to_rownames("Label")
 
-    # Add Base n row
+    # Add base n row
     if (!numeric) {
       base_n <- if (is.null(weight_name)) {
         sum(apply(data[vars], 1, function(row) any(!is.na(row))), na.rm = TRUE)
@@ -268,7 +268,7 @@ tab_mr <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, 
       names(result)[1] <- col_label
     }
 
-    # Add Base n row
+    # Add base n row
     if (!numeric) {
       base_row <- tibble::tibble(Label = "Base n")
       for (yv in y_levels) {
