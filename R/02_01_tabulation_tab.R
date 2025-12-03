@@ -89,7 +89,7 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
     }
   }
 
-  # Helpers ----
+  # Helper functions ----
 
   # If x or y is the weight column, duplicate to protect numeric weights
   if (!rlang::quo_is_null(w_enquo)) {
@@ -143,10 +143,10 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
   # Single variable
   if (rlang::quo_is_null(y_enquo)) {
 
-    # Counts
+    # Frequencies
     if (!prop) {
       if (rlang::quo_is_null(w_enquo)) {
-        # Unweighted counts
+        # Unweighted frequencies
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]])) %>%
           dplyr::group_by(.data[[x_name]], .drop = FALSE) %>%
@@ -158,7 +158,7 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
           tibble::column_to_rownames(var = x_name)
 
       } else {
-        # Weighted counts
+        # Weighted frequencies
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]])) %>%
           dplyr::group_by(.data[[x_name]], .drop = FALSE) %>%
@@ -170,10 +170,10 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
           tibble::column_to_rownames(var = x_name)
       }
 
-      # Percentages
+      # Proportions
     } else {
       if (rlang::quo_is_null(w_enquo)) {
-        # Unweighted %
+        # Unweighted proportions
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]])) %>%
           dplyr::group_by(.data[[x_name]], .drop = FALSE) %>%
@@ -192,7 +192,7 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
           tibble::column_to_rownames(var = x_name)
 
       } else {
-        # Weighted %
+        # Weighted proportions
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]])) %>%
           dplyr::group_by(.data[[x_name]], .drop = FALSE) %>%
@@ -215,10 +215,10 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
     # Crosstab
   } else {
 
-    # Counts
+    # Frequencies
     if (!prop) {
       if (rlang::quo_is_null(w_enquo)) {
-        # Unweighted counts
+        # Unweighted frequencies
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]]), !is.na(.data[[y_name]])) %>%
           dplyr::group_by(.data[[y_name]], .data[[x_name]], .drop = FALSE) %>%
@@ -232,7 +232,7 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
           tibble::column_to_rownames(var = " ")
 
       } else {
-        # Weighted counts
+        # Weighted frequencies
         result <- data %>%
           dplyr::filter(!is.na(.data[[x_name]]), !is.na(.data[[y_name]])) %>%
           dplyr::group_by(.data[[y_name]], .data[[x_name]], .drop = FALSE) %>%
@@ -246,10 +246,10 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
           tibble::column_to_rownames(var = " ")
       }
 
-      # Percentages
+      # Proportions
     } else {
       if (rlang::quo_is_null(w_enquo)) {
-        # Unweighted %
+        # Unweighted proportions
         totals <- data %>%
           dplyr::group_by(.data[[y_name]], .data[[x_name]], .drop = FALSE) %>%
           dplyr::summarise(`Unweighted Count` = dplyr::n(), .groups = "drop") %>%
@@ -281,7 +281,7 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
           tibble::column_to_rownames(var = " ")
 
       } else {
-        # Weighted %
+        # Weighted proportions
         totals <- data %>%
           dplyr::filter(!is.na(.data[[x_name]]), !is.na(.data[[y_name]])) %>%
           dplyr::group_by(.data[[y_name]], .data[[x_name]], .drop = FALSE) %>%
@@ -363,8 +363,13 @@ tab <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, rou
   return(result)
 }
 
-#' Custom print method for tab() results
+#' **Custom print method for `tab()` results**
+#'
+#' @description
+#' Provides a readable console summary for `tab()` output by displaying a descriptive header followed by the table.
+#'
 #' @export
+
 print.tab_result <- function(x, ...) {
   vars <- attr(x, "vars")
 

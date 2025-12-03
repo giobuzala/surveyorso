@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_05_tabulation_tab_grid.R
 \name{tab_grid}
 \alias{tab_grid}
-\title{\strong{Create a full distribution table for grid questions}}
+\title{\strong{Create a full distribution table for a grid question}}
 \usage{
 tab_grid(
   data,

@@ -4,7 +4,7 @@
 #' This function converts one or more categorical variables in a data frame into one-hot encoded variables.
 #'
 #' @param data A data frame containing the variables to encode.
-#' @param vars A character vector (quoted or unquoted) of variables to one-hot encode.
+#' @param vars Variables to one-hot encode.
 #' @param keep_all Logical; if `TRUE`, returns full dataset; if `FALSE`, returns only one-hot encoded variables.
 #'
 #' @details

@@ -2,10 +2,10 @@
 % Please edit documentation in R/02_01_tabulation_tab.R
 \name{print.tab_result}
 \alias{print.tab_result}
-\title{Custom print method for tab() results}
+\title{\strong{Custom print method for \code{tab()} results}}
 \usage{
 \method{print}{tab_result}(x, ...)
 }
 \description{
-Custom print method for tab() results
+Provides a readable console summary for \code{tab()} output by displaying a descriptive header followed by the table.
 }

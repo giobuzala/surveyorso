@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_07_tabulation_tab_grid_t.R
 \name{tab_grid_t}
 \alias{tab_grid_t}
-\title{\strong{Create a top/bottom table or crosstab for grid questions}}
+\title{\strong{Create a top/bottom box table or crosstab for a grid question}}
 \usage{
 tab_grid_t(
   data,

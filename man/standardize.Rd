@@ -21,7 +21,7 @@ standardize(
 
 \item{keep_all}{Logical; if \code{TRUE}, returns full dataset; if \code{FALSE}, returns only standardized variables.}
 
-\item{outside_scale}{Character vector of response levels (typically DK/PNS) that lie outside of the scale and should be treated as neutral midpoint (\code{0.5}).}
+\item{outside_scale}{Character vector of response levels (typically DK/PNTS) that lie outside of the scale and should be treated as neutral midpoint (\code{0.5}).}
 }
 \value{
 A data frame with standardized variables.
@@ -31,7 +31,7 @@ A data frame with standardized variables.
 }
 }
 \description{
-This function standardizes variables to have mean = 0 and standard deviation = 1.
+This function standardizes variables to have mean of 0 and standard deviation of 1.
 }
 \details{
 \itemize{

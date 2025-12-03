@@ -4,7 +4,7 @@
 #' This function creates an interactive heatmap of a correlation matrix. Hover labels display variable pairs and their correlation values.
 #'
 #' @param cor_mat Correlation matrix or a data frame.
-#' @param exclude Optional variable(s) to exclude.
+#' @param exclude (Optional) Variable(s) to exclude.
 #'
 #' @details
 #' The function accepts the output of `cor_matrix()` and optionally allows excluding selected variables from the visualization.

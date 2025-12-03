@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_03_tabulation_tab_mr.R
 \name{tab_mr}
 \alias{tab_mr}
-\title{\strong{Create a multiple response (pick-any) set table or crosstab}}
+\title{\strong{Create a table or crosstab for a multiple response (pick-any) set}}
 \usage{
 tab_mr(
   data,

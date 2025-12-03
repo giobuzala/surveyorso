@@ -27,6 +27,9 @@ Additional arguments are passed to \code{tab_mr()}.
 
 Multiple response sets are detected automatically by prefixes before the first underscore (\verb{_}).
 }
+\details{
+This function assumes that the specified data frame only contains multiple response sets Any non-multiple response set should be excluded using the \code{exclude} argument.
+}
 \examples{
 # Unweighted proportions tables of all multiple response sets
 tab_mr_all(data = survey_data)

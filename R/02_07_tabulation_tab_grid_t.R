@@ -1,4 +1,4 @@
-#' **Create a top/bottom table or crosstab for grid questions**
+#' **Create a top/bottom box table or crosstab for a grid question**
 #'
 #' @description
 #' This function produces a top- or bottom-box summary for grid survey questions.
@@ -384,8 +384,13 @@ tab_grid_t <- function(data, x, y = NULL, top_bottom = T2, weight = NULL, prop =
   return(result)
 }
 
-#' Custom print method for tab_grid_t() results
+#' **Custom print method for `tab_grid_t()` results**
+#'
+#' @description
+#' Provides a readable console summary for `tab_grid_t()` output by displaying a descriptive header followed by the table.
+#'
 #' @export
+
 print.tab_grid_t_result <- function(x, ...) {
   vars <- attr(x, "vars")
 

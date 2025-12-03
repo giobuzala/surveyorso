@@ -13,6 +13,9 @@
 #' @param exclude Variables to exclude from tabulation. Defaults to `NULL`. Always excludes `y` (if specified), `weight` (if specified), and variable literally named "weight".
 #' @param ... Additional arguments passed to `tab_mr()`.
 #'
+#' @details
+#' This function assumes that the specified data frame only contains multiple response sets Any non-multiple response set should be excluded using the `exclude` argument.
+#'
 #' @return
 #' A named list of tables or crosstabs, one per multiple response set prefix.
 #'

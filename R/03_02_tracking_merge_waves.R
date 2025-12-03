@@ -14,7 +14,7 @@
 #' @param new_data A data frame for the new wave.
 #' @param old_data A data frame for the old wave.
 #' @param vars Character string, either `"New and shared old"` (default) or `"All"`.
-#' @param keep_old Optional character vector of old-only variables to keep when `vars = "New and shared old"`.
+#' @param keep_old (Optional) character vector of old-only variables to keep when `vars = "New and shared old"`.
 #'
 #' @return
 #' A merged data frame with harmonized variable labels.

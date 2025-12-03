@@ -2,10 +2,10 @@
 % Please edit documentation in R/02_07_tabulation_tab_grid_t.R
 \name{print.tab_grid_t_result}
 \alias{print.tab_grid_t_result}
-\title{Custom print method for tab_grid_t() results}
+\title{\strong{Custom print method for \code{tab_grid_t()} results}}
 \usage{
 \method{print}{tab_grid_t_result}(x, ...)
 }
 \description{
-Custom print method for tab_grid_t() results
+Provides a readable console summary for \code{tab_grid_t()} output by displaying a descriptive header followed by the table.
 }

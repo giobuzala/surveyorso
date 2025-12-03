@@ -2,10 +2,10 @@
 % Please edit documentation in R/02_03_tabulation_tab_mr.R
 \name{print.tab_mr_result}
 \alias{print.tab_mr_result}
-\title{Custom print method for tab_mr() results}
+\title{\strong{Custom print method for \code{tab_mr()} results}}
 \usage{
 \method{print}{tab_mr_result}(x, ...)
 }
 \description{
-Custom print method for tab_mr() results
+Provides a readable console summary for \code{tab_mr()} output by displaying a descriptive header followed by the table.
 }

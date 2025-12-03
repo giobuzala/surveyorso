@@ -2,7 +2,7 @@
 % Please edit documentation in R/02_06_tabulation_tab_grid_all.R
 \name{tab_grid_all}
 \alias{tab_grid_all}
-\title{\strong{Apply \code{tab_grid()} to all grid questions}}
+\title{\strong{Apply \code{tab_grid()} to multiple grid questions}}
 \usage{
 tab_grid_all(data, weight = NULL, exclude = NULL, ...)
 }
@@ -25,6 +25,9 @@ Additional arguments are passed to \code{tab_grid()}.
 \item Grid questions are detected automatically by prefixes before the first underscore (\verb{_}).
 \item Multiple response (pick-any) sets are skipped, since those should be handled with \code{tab_mr()}.
 }
+}
+\details{
+This function assumes that the specified data frame only contains grid questions. Any non-grid question should be excluded using the \code{exclude} argument.
 }
 \examples{
 # Unweighted proportions tables of all grid questions

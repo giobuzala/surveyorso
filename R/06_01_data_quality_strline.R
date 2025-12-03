@@ -8,7 +8,7 @@
 #'
 #' @details
 #' - The function automatically detects all variables that begin with the specified prefix followed by an underscore.
-#' - It excludes multiple response sets (e.g., binary 0/1 or Unchecked/Checked grids).
+#' - It excludes multiple response sets (e.g., binary `0`/`1` or `Unchecked`/`Checked` grids).
 #'
 #' @return
 #' The original data frame with an additional logical column named `prefix_strline`, indicating whether each respondent provided identical responses across all items in the grid.

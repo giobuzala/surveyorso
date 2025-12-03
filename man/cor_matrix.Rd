@@ -17,17 +17,17 @@ cor_matrix(
 \arguments{
 \item{data}{A data frame containing variables to correlate.}
 
-\item{weight}{Optional. Name of the weight variable. If NULL, computes unweighted correlations.}
+\item{weight}{(Optional) Name of the weight variable. If \code{NULL}, computes unweighted correlations.}
 
-\item{id_var}{ID column name to exclude (default = Vrid).}
+\item{id_var}{ID column name to exclude (defaults to \code{Vrid}).}
 
-\item{method}{Correlation method ("pearson", "spearman", or "kendall").}
+\item{method}{Correlation method (\verb{pearson"}, \code{"spearman"}, or \code{"kendall"}).}
 
 \item{round}{Number of decimal places to round correlations to.}
 
-\item{half}{Logical; if TRUE (default), displays only the lower triangle. If FALSE, displays the full matrix.}
+\item{half}{Logical; if \code{TRUE} (default), displays only the lower triangle. If \code{FALSE}, displays the full matrix.}
 
-\item{min}{Optional numeric threshold. If specified, correlations with |r| < min are replaced with NA.}
+\item{min}{(Optional) Numeric threshold. If specified, correlations with |r| < min are replaced with NA.}
 }
 \value{
 A correlation matrix, as a data frame.

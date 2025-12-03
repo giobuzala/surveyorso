@@ -9,7 +9,7 @@ one_hot_encode(data, vars, keep_all = TRUE)
 \arguments{
 \item{data}{A data frame containing the variables to encode.}
 
-\item{vars}{A character vector (quoted or unquoted) of variables to one-hot encode.}
+\item{vars}{Variables to one-hot encode.}
 
 \item{keep_all}{Logical; if \code{TRUE}, returns full dataset; if \code{FALSE}, returns only one-hot encoded variables.}
 }

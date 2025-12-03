@@ -1,4 +1,4 @@
-#' **Create a multiple response (pick-any) set table or crosstab**
+#' **Create a table or crosstab for a multiple response (pick-any) set**
 #'
 #' @description
 #' This function produces a table or a crosstab for multiple response (pick-any) set questions.
@@ -390,8 +390,13 @@ tab_mr <- function(data, x, y = NULL, weight = NULL, prop = TRUE, total = TRUE, 
   return(result)
 }
 
-#' Custom print method for tab_mr() results
+#' **Custom print method for `tab_mr()` results**
+#'
+#' @description
+#' Provides a readable console summary for `tab_mr()` output by displaying a descriptive header followed by the table.
+#'
 #' @export
+
 print.tab_mr_result <- function(x, ...) {
   vars <- attr(x, "vars")
 

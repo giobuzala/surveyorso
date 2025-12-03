@@ -18,7 +18,7 @@ merge_waves(
 
 \item{vars}{Character string, either \code{"New and shared old"} (default) or \code{"All"}.}
 
-\item{keep_old}{Optional character vector of old-only variables to keep when \code{vars = "New and shared old"}.}
+\item{keep_old}{(Optional) character vector of old-only variables to keep when \code{vars = "New and shared old"}.}
 }
 \value{
 A merged data frame with harmonized variable labels.

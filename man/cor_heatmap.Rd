@@ -9,7 +9,7 @@ cor_heatmap(cor_mat, exclude = NULL)
 \arguments{
 \item{cor_mat}{Correlation matrix or a data frame.}
 
-\item{exclude}{Optional variable(s) to exclude.}
+\item{exclude}{(Optional) Variable(s) to exclude.}
 }
 \value{
 A plotly heatmap object.

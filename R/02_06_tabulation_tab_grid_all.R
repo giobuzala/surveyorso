@@ -1,4 +1,4 @@
-#' **Apply `tab_grid()` to all grid questions**
+#' **Apply `tab_grid()` to multiple grid questions**
 #'
 #' @description
 #' This function maps `tab_grid()` across all grid question prefixes in a data frame.
@@ -11,6 +11,9 @@
 #' @param weight (Optional) A numeric weighting variable. If `NULL` (default), results are unweighted.
 #' @param exclude Variables or prefixes to exclude from tabulation. Defaults to `NULL`. Always excludes `weight` (if specified) and any variable literally named "weight".
 #' @param ... Additional arguments passed to `tab_grid()`.
+#'
+#' @details
+#' This function assumes that the specified data frame only contains grid questions. Any non-grid question should be excluded using the `exclude` argument.
 #'
 #' @return
 #' A named list of tables, one per grid question's prefix.

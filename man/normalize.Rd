@@ -21,7 +21,7 @@ normalize(
 
 \item{keep_all}{Logical; if \code{TRUE}, returns full dataset; if \code{FALSE}, returns only normalized variables.}
 
-\item{outside_scale}{Character vector of response levels (typically DK/PNS) that lie outside of the scale and should be treated as neutral midpoint (\code{0.5}).}
+\item{outside_scale}{Character vector of response levels (typically DK/PNTS) that lie outside of the scale and should be treated as neutral midpoint (\code{0.5}).}
 }
 \value{
 A data frame with normalized variables.

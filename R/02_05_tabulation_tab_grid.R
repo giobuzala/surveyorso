@@ -1,4 +1,4 @@
-#' **Create a full distribution table for grid questions**
+#' **Create a full distribution table for a grid question**
 #'
 #' @description
 #' This function produces a table for grid survey questions, showing the full distribution across all response levels.
@@ -185,8 +185,13 @@ tab_grid <- function(data, x, weight = NULL, prop = TRUE, sort = NULL, top_botto
   return(result)
 }
 
-#' Custom print method for tab_grid() results
+#' **Custom print method for `tab_grid()` results**
+#'
+#' @description
+#' Provides a readable console summary for `tab_grid()` output by displaying a descriptive header followed by the table.
+#'
 #' @export
+
 print.tab_grid_result <- function(x, ...) {
   vars <- attr(x, "vars")
 

@@ -12,7 +12,7 @@
 #' @details
 #' Requires an OpenAI API key, which can be generated at `https://platform.openai.com/`, to be set in your R session using `Sys.setenv(OPENAI_API_KEY="...")`.
 #'
-#' The model classifies each response as low-quality (1) or valid (0).
+#' The model classifies each response as low-quality (`1`) or valid (`0`).
 #'
 #' A response is flagged as low-quality if it is:
 #'  - Gibberish or random characters

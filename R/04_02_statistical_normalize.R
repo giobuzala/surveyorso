@@ -7,7 +7,7 @@
 #' @param vars Variables to normalize. Supports tidyselect syntax (e.g., `starts_with()`, `c(var1, var2)`).
 #' @param flip Logical; if `TRUE`, reverses the direction of valid response levels before scaling.
 #' @param keep_all Logical; if `TRUE`, returns full dataset; if `FALSE`, returns only normalized variables.
-#' @param outside_scale Character vector of response levels (typically DK/PNS) that lie outside of the scale and should be treated as neutral midpoint (`0.5`).
+#' @param outside_scale Character vector of response levels (typically DK/PNTS) that lie outside of the scale and should be treated as neutral midpoint (`0.5`).
 #'
 #' @details
 #' - Numeric variables are min–max scaled to 0 to 1.

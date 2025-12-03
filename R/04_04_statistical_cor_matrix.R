@@ -4,12 +4,12 @@
 #' This function computes a correlation matrix across all numeric variables in a dataset.
 #'
 #' @param data A data frame containing variables to correlate.
-#' @param weight Optional. Name of the weight variable. If NULL, computes unweighted correlations.
-#' @param id_var ID column name to exclude (default = Vrid).
-#' @param method Correlation method ("pearson", "spearman", or "kendall").
-#' @param half Logical; if TRUE (default), displays only the lower triangle. If FALSE, displays the full matrix.
+#' @param weight (Optional) Name of the weight variable. If `NULL`, computes unweighted correlations.
+#' @param id_var ID column name to exclude (defaults to `Vrid`).
+#' @param method Correlation method (`pearson"`, `"spearman"`, or `"kendall"`).
+#' @param half Logical; if `TRUE` (default), displays only the lower triangle. If `FALSE`, displays the full matrix.
 #' @param round Number of decimal places to round correlations to.
-#' @param min Optional numeric threshold. If specified, correlations with |r| < min are replaced with NA.
+#' @param min (Optional) Numeric threshold. If specified, correlations with |r| < min are replaced with NA.
 #'
 #' @details
 #' Only numeric variables are allowed. Non-numeric variables (e.g., factors, characters, or dates) will trigger an error.
