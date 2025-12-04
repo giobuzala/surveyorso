@@ -4,7 +4,7 @@
 \alias{export_coding}
 \title{\strong{Export a coding workbook}}
 \usage{
-export_coding(data, x, path = "Data", filter = NULL)
+export_coding(data, x, path = "Data", id_var = Vrid, filter = NULL)
 }
 \arguments{
 \item{data}{A data frame containing the survey responses. Must include a \code{Vrid} column and the variables specified in \code{x}.}
@@ -12,6 +12,8 @@ export_coding(data, x, path = "Data", filter = NULL)
 \item{x}{A single variable or multiple variables specifying the open-ended question(s) to export.}
 
 \item{path}{File path where the workbook(s) will be saved. Defaults to \code{"Data"}.}
+
+\item{id_var}{ID variable in the dataset. Defaults to \code{Vrid}.}
 
 \item{filter}{(Optional) A single variable used to group or filter responses in the exported workbook.}
 }
@@ -30,12 +32,12 @@ This function creates an Excel-based coding workbook for open-ended survey quest
 Each workbook includes:
 \itemize{
 \item A \verb{Coding Workbook} sheet containing responses, along with columns for codes and bins.
-\item A \code{Codes} sheet pre-populated with standard codes (97 = "Other", 98 = "None", 99 = "Don't know") and space for custom codes.
+\item A \code{Codes} sheet pre-populated with standard codes (\code{97} = \code{Other}, \code{98} = \code{None}, \code{99} = \verb{Don't know}) and space for custom codes.
 }
 
 The workbook also includes Excel formulas for bin lookups, counts, and percentages, with conditional formatting to highlight invalid codes.
 
-\strong{NOTE:} The formula in cell D2 of the first sheet must be filled down to the end of the column. Copying the formula programmatically in R causes Excel to slow down.
+\strong{NOTE:} The formula in cell D2 of the first sheet must be filled down to the end of the column. Populating the formula programmatically in R causes Excel to slow down.
 }
 \examples{
 # Export coding workbook for Q5

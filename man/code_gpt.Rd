@@ -37,6 +37,10 @@ A table with respondent IDs, responses, codes, and bins.
 }
 \description{
 This function submits open-ended survey responses to the OpenAI API and returns a dataset with the original responses, assigned codes, and bins from a provided code list.
+\itemize{
+\item If the \code{theme_list} argument includes a \code{Description} column, its text is incorporated as additional coding instructions.
+\item Additional custom instructions can also be supplied through the \code{instructions} argument.
+}
 }
 \details{
 Requires an OpenAI API key, which can be generated at \verb{https://platform.openai.com/}, to be set in your R session using \code{Sys.setenv(OPENAI_API_KEY="...")}.

@@ -27,10 +27,11 @@ theme_gpt(
 \item{instructions}{Optional string; additional instructions for coding.}
 }
 \value{
-A table containing the generated thematic code list and their description. Standard codes (Other, None, Don't know) are included automatically.
+A table containing the generated thematic code list and their description. Standard codes (\code{Other}, \code{None}, \verb{Don't know}) are included automatically.
 }
 \description{
 This function analyzes open-ended survey responses and automatically generates a set of thematic codes with descriptions.
+Additional custom instructions can be supplied through the \code{instructions} argument.
 }
 \details{
 Requires an OpenAI API key, which can be generated at \verb{https://platform.openai.com/}, to be set in your R session using \code{Sys.setenv(OPENAI_API_KEY="...")}.
@@ -44,9 +45,9 @@ The output is a tibble with three columns:
 
 Standard codes are included automatically:
 \itemize{
-\item 97 = Other
-\item 98 = None
-\item 99 = Don't know
+\item \code{97} = \code{Other}
+\item \code{98} = \code{None}
+\item \code{99} = \verb{Don't know}
 }
 
 Use this function to create a \code{theme_list} for input into \code{code_gpt()}, or copy and paste it into an Excel coding workbook.

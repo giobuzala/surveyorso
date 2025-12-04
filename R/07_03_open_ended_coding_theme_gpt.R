@@ -2,6 +2,7 @@
 #'
 #' @description
 #' This function analyzes open-ended survey responses and automatically generates a set of thematic codes with descriptions.
+#' Additional custom instructions can be supplied through the `instructions` argument.
 #'
 #' @param data A data frame containing the survey data.
 #' @param x The open-ended variable to analyze.
@@ -19,16 +20,16 @@
 #' - `Description`: A one-sentence summary describing the theme's content.
 #'
 #' Standard codes are included automatically:
-#' - 97 = Other
-#' - 98 = None
-#' - 99 = Don't know
+#' - `97` = `Other`
+#' - `98` = `None`
+#' - `99` = `Don't know`
 #'
 #' Use this function to create a `theme_list` for input into `code_gpt()`, or copy and paste it into an Excel coding workbook.
 #'
 #' **Note:** It’s best to review and refine the generated codes before using them in `code_gpt()`.
 #'
 #' @return
-#' A table containing the generated thematic code list and their description. Standard codes (Other, None, Don't know) are included automatically.
+#' A table containing the generated thematic code list and their description. Standard codes (`Other`, `None`, `Don't know`) are included automatically.
 #'
 #' @examples
 #' # Generate a theme list for Q5

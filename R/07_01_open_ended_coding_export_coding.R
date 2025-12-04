@@ -10,16 +10,17 @@
 #' @param data A data frame containing the survey responses. Must include a `Vrid` column and the variables specified in `x`.
 #' @param x A single variable or multiple variables specifying the open-ended question(s) to export.
 #' @param path File path where the workbook(s) will be saved. Defaults to `"Data"`.
+#' @param id_var ID variable in the dataset. Defaults to `Vrid`.
 #' @param filter (Optional) A single variable used to group or filter responses in the exported workbook.
 #'
 #' @details
 #' Each workbook includes:
 #' - A `Coding Workbook` sheet containing responses, along with columns for codes and bins.
-#' - A `Codes` sheet pre-populated with standard codes (97 = "Other", 98 = "None", 99 = "Don't know") and space for custom codes.
+#' - A `Codes` sheet pre-populated with standard codes (`97` = `Other`, `98` = `None`, `99` = `Don't know`) and space for custom codes.
 #'
 #' The workbook also includes Excel formulas for bin lookups, counts, and percentages, with conditional formatting to highlight invalid codes.
 #'
-#' **NOTE:** The formula in cell D2 of the first sheet must be filled down to the end of the column. Copying the formula programmatically in R causes Excel to slow down.
+#' **NOTE:** The formula in cell D2 of the first sheet must be filled down to the end of the column. Populating the formula programmatically in R causes Excel to slow down.
 #'
 #' @return
 #' One or more Excel workbooks saved to the specified path.
@@ -33,7 +34,7 @@
 #'
 #' @export
 
-export_coding <- function(data, x, path = "Data", filter = NULL) {
+export_coding <- function(data, x, path = "Data", id_var = Vrid, filter = NULL) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "tibble", "tidyselect", "dplyr", "openxlsx")
@@ -65,6 +66,8 @@ export_coding <- function(data, x, path = "Data", filter = NULL) {
   }
 
   x <- vars
+
+  id_var_name <- rlang::as_name(rlang::enquo(id_var))
 
   if (missing(filter) || is.null(substitute(filter))) {
     filter <- NULL
@@ -110,6 +113,11 @@ export_coding <- function(data, x, path = "Data", filter = NULL) {
          call. = FALSE)
   }
 
+  # Check that ID variable exists if provided
+  if (!(id_var_name %in% colnames(data))) {
+    stop("ID variable ", id_var_name, " does not exist in the dataset.", call. = FALSE)
+  }
+
   # Check that filter variable exists if provided
   if (!is.null(filter) && !filter %in% colnames(data)) {
     stop("The filter variable ", filter, " does not exist in the dataset.", call. = FALSE)
@@ -131,11 +139,11 @@ export_coding <- function(data, x, path = "Data", filter = NULL) {
 
     # Prepare coding data
     coding_sheet <- data %>%
-      dplyr::select(Vrid, dplyr::all_of(q), dplyr::all_of(filter)) %>%
+      dplyr::select(dplyr::all_of(id_var_name), dplyr::all_of(q), dplyr::all_of(filter)) %>%
       dplyr::filter(.data[[q]] != "") %>%
       dplyr::rename(!!attr(data[[q]], "label") := dplyr::all_of(q)) %>%
       dplyr::mutate(dplyr::across(dplyr::everything(), ~ { attr(.x, "label") <- NULL; .x })) %>%
-      dplyr::arrange(Vrid) %>%
+      dplyr::arrange(!!rlang::sym(id_var_name)) %>%
       dplyr::mutate(`Code(s)` = NA_character_,
                     `Bin(s)` = NA_character_)
 

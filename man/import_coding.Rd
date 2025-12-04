@@ -7,13 +7,13 @@
 import_coding(data, x, path = "Data", id_var = Vrid)
 }
 \arguments{
-\item{data}{A data frame containing at least the id_var and original question column.}
+\item{data}{A data frame containing at least the \code{id_var} and original question column.}
 
-\item{x}{A variable to be imported (e.g., Q5).}
+\item{x}{A variable to be imported (e.g., \code{Q5}).}
 
 \item{path}{Directory containing the workbook. Defaults to \code{"Data"}.}
 
-\item{id_var}{ID column name in the dataset. Defaults to \code{Vrid.}}
+\item{id_var}{ID variable in the dataset. Defaults to \code{Vrid}.}
 }
 \value{
 A data frame merged with new coded columns. If unknown codes are detected, the function prints a table of respondent IDs and problematic codes and then stops with an error.

@@ -3,10 +3,10 @@
 #' @description
 #' This function imports a coded Excel workbook for a specific open-ended question and merges processed coded variables back into the dataset.
 #'
-#' @param x A variable to be imported (e.g., Q5).
+#' @param data A data frame containing at least the `id_var` and original question column.
+#' @param x A variable to be imported (e.g., `Q5`).
 #' @param path Directory containing the workbook. Defaults to `"Data"`.
-#' @param data A data frame containing at least the id_var and original question column.
-#' @param id_var ID column name in the dataset. Defaults to `Vrid.`
+#' @param id_var ID variable in the dataset. Defaults to `Vrid`.
 #'
 #' @details
 #' This function handles one question at a time.

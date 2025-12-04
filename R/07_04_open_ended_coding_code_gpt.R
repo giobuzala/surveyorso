@@ -3,6 +3,9 @@
 #' @description
 #' This function submits open-ended survey responses to the OpenAI API and returns a dataset with the original responses, assigned codes, and bins from a provided code list.
 #'
+#' - If the `theme_list` argument includes a `Description` column, its text is incorporated as additional coding instructions.
+#' - Additional custom instructions can also be supplied through the `instructions` argument.
+#'
 #' @param data A data frame containing the survey data.
 #' @param x The open-ended variable to be coded.
 #' @param theme_list A data frame with at least two columns: `Code` and `Bin`.

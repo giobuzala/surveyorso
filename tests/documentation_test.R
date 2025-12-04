@@ -34,5 +34,12 @@ devtools::load_all() # Reload the package locally for testing
 ?lowqual_gpt
 
 ## Open-ended coding functions ----
+?export_coding
+?import_coding
+?theme_gpt
+?code_gpt
+?code_gpt_to_df
+?code_gpt_to_excel
+
 ## Miscellaneous functions ----
 ?combine
