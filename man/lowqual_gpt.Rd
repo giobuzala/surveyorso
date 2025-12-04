@@ -25,7 +25,7 @@ Responses are evaluated for signs of gibberish, nonsense, random text, irrelevan
 \details{
 Requires an OpenAI API key, which can be generated at \verb{https://platform.openai.com/}, to be set in your R session using \code{Sys.setenv(OPENAI_API_KEY="...")}.
 
-The model classifies each response as low-quality (1) or valid (0).
+The model classifies each response as low-quality (\code{1}) or valid (\code{0}).
 
 A response is flagged as low-quality if it is:
 \itemize{

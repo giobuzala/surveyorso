@@ -20,7 +20,7 @@ This function flags respondents who selected the same response across all items 
 \details{
 \itemize{
 \item The function automatically detects all variables that begin with the specified prefix followed by an underscore.
-\item It excludes multiple response sets (e.g., binary 0/1 or Unchecked/Checked grids).
+\item It excludes multiple response sets (e.g., binary \code{0}/\code{1} or \code{Unchecked}/\code{Checked} grids).
 }
 }
 \examples{
