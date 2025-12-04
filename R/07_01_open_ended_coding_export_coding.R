@@ -138,10 +138,13 @@ export_coding <- function(data, x, path = "Data", id_var = Vrid, filter = NULL) 
     vert_center_style <- openxlsx::createStyle(valign = "center")
 
     # Prepare coding data
+    var_label <- attr(data[[q]], "label") # Determine question label; if not, fallback to variable name
+    if (is.null(var_label) || !nzchar(var_label)) var_label <- q
+
     coding_sheet <- data %>%
       dplyr::select(dplyr::all_of(id_var_name), dplyr::all_of(q), dplyr::all_of(filter)) %>%
       dplyr::filter(.data[[q]] != "") %>%
-      dplyr::rename(!!attr(data[[q]], "label") := dplyr::all_of(q)) %>%
+      dplyr::rename(!!var_label := dplyr::all_of(q)) %>%
       dplyr::mutate(dplyr::across(dplyr::everything(), ~ { attr(.x, "label") <- NULL; .x })) %>%
       dplyr::arrange(!!rlang::sym(id_var_name)) %>%
       dplyr::mutate(`Code(s)` = NA_character_,
@@ -154,18 +157,18 @@ export_coding <- function(data, x, path = "Data", id_var = Vrid, filter = NULL) 
 
 
     # Coding Workbook sheet
-    openxlsx::addWorksheet(wb, paste0(q, " Coding Workbook"))
-    openxlsx::writeData(wb, paste0(q, " Coding Workbook"), coding_sheet, withFilter = TRUE)
+    openxlsx::addWorksheet(wb, "Coding Workbook")
+    openxlsx::writeData(wb, "Coding Workbook", coding_sheet, withFilter = TRUE)
 
-    openxlsx::addStyle(wb, paste0(q, " Coding Workbook"), header_style, rows = 1, cols = 1:ncol(coding_sheet), gridExpand = TRUE)
+    openxlsx::addStyle(wb, "Coding Workbook", header_style, rows = 1, cols = 1:ncol(coding_sheet), gridExpand = TRUE)
     for (i in 1:nrow(coding_sheet)) {
       style <- if (i %% 2 == 0) even_row_style else odd_row_style
-      openxlsx::addStyle(wb, paste0(q, " Coding Workbook"), style, rows = i + 1, cols = 1:ncol(coding_sheet), gridExpand = TRUE)
+      openxlsx::addStyle(wb, "Coding Workbook", style, rows = i + 1, cols = 1:ncol(coding_sheet), gridExpand = TRUE)
     }
 
-    openxlsx::setColWidths(wb, paste0(q, " Coding Workbook"), cols = c(2, 4), widths = 100)
-    if (!is.null(filter)) {openxlsx::setColWidths(wb, paste0(q, " Coding Workbook"), cols = 5, widths = 20)}
-    openxlsx::freezePane(wb, paste0(q, " Coding Workbook"), firstRow = TRUE)
+    openxlsx::setColWidths(wb, "Coding Workbook", cols = c(2, 4), widths = 100)
+    if (!is.null(filter)) {openxlsx::setColWidths(wb, "Coding Workbook", cols = 5, widths = 20)}
+    openxlsx::freezePane(wb, "Coding Workbook", firstRow = TRUE)
 
 
     # Codes sheet
@@ -182,33 +185,33 @@ export_coding <- function(data, x, path = "Data", id_var = Vrid, filter = NULL) 
       Percentage = NA,
     )
 
-    openxlsx::addWorksheet(wb, paste0(q, " Codes"))
-    openxlsx::writeData(wb, paste0(q, " Codes"), codes_sheet, withFilter = FALSE)
+    openxlsx::addWorksheet(wb,"Codes")
+    openxlsx::writeData(wb,"Codes", codes_sheet, withFilter = FALSE)
 
-    openxlsx::addStyle(wb, paste0(q, " Codes"), header_style, rows = 1, cols = 1:ncol(codes_sheet), gridExpand = TRUE)
+    openxlsx::addStyle(wb,"Codes", header_style, rows = 1, cols = 1:ncol(codes_sheet), gridExpand = TRUE)
     for (i in 1:nrow(codes_sheet)) {
       style <- if (i %% 2 == 0) even_row_style else odd_row_style
-      openxlsx::addStyle(wb, paste0(q, " Codes"), style, rows = i + 1, cols = 1:ncol(codes_sheet), gridExpand = TRUE)
-      openxlsx::addStyle(wb, paste0(q, " Codes"), vert_center_style, i + 1, cols = 1:ncol(codes_sheet), gridExpand = TRUE, stack = TRUE)
+      openxlsx::addStyle(wb,"Codes", style, rows = i + 1, cols = 1:ncol(codes_sheet), gridExpand = TRUE)
+      openxlsx::addStyle(wb,"Codes", vert_center_style, i + 1, cols = 1:ncol(codes_sheet), gridExpand = TRUE, stack = TRUE)
     }
 
-    openxlsx::setColWidths(wb, paste0(q, " Codes"), cols = 2, widths = 50)
-    openxlsx::setColWidths(wb, paste0(q, " Codes"), cols = 3, widths = 80)
+    openxlsx::setColWidths(wb,"Codes", cols = 2, widths = 50)
+    openxlsx::setColWidths(wb,"Codes", cols = 3, widths = 80)
 
     # Bin lookup formula (written to Excel as text)
     openxlsx::writeData(
-      wb, paste0(q, " Coding Workbook"),
+      wb, "Coding Workbook",
       x = paste0(
         '=IF($C2="", "", TEXTJOIN("; ", , MAP(TEXTSPLIT($C2, ","), LAMBDA(code,',
         ' IF(TRIM(code)="", "", TRIM(IFERROR(',
-        ' XLOOKUP(TRIM(code)+0, \'', q, ' Codes\'!$A$2:$A$31, \'', q, ' Codes\'!$B$2:$B$31),',
+        ' XLOOKUP(TRIM(code)+0, Codes!$A$2:$A$31, Codes!$B$2:$B$31),',
         ' "CODE " & TRIM(code) & " DOES NOT EXIST")))))))'
       ),
       startCol = 4, startRow = 2
     )
 
     openxlsx::conditionalFormatting(
-      wb, paste0(q, " Coding Workbook"), cols = 4, rows = 2:(nrow(coding_sheet) + 1),
+      wb, "Coding Workbook", cols = 4, rows = 2:(nrow(coding_sheet) + 1),
       rule = "DOES NOT EXIST", type = "contains",
       style = openxlsx::createStyle(fontColour = "#FF0000")
     )
@@ -217,19 +220,19 @@ export_coding <- function(data, x, path = "Data", id_var = Vrid, filter = NULL) 
     count_formula <- paste0(
       'IF($A', 2:(nrow(codes_sheet) + 1), '="", "", ',
       'SUMPRODUCT(--(ISNUMBER(SEARCH("," & $A', 2:(nrow(codes_sheet) + 1),
-      ' & ",", "," & SUBSTITUTE(\'', q, ' Coding Workbook\'!$C$2:$C$3000, " ", "") & ",")))))'
+      ' & ",", "," & SUBSTITUTE(\'Coding Workbook\'!$C$2:$C$3000, " ", "") & ",")))))'
     )
 
     perc_formula <- paste0(
       'IF($A', 2:(nrow(codes_sheet) + 1), '="", "", ',
       'SUMPRODUCT(--ISNUMBER(SEARCH("," & A', 2:(nrow(codes_sheet) + 1),
-      ' & ",", "," & SUBSTITUTE(\'', q, ' Coding Workbook\'!C$2:C$3000, " ", "") & ","))) / MAX(1, COUNTA(\'', q, ' Coding Workbook\'!B$2:B$3000)))'
+      ' & ",", "," & SUBSTITUTE(\'Coding Workbook\'!C$2:C$3000, " ", "") & ","))) / MAX(1, COUNTA(\'Coding Workbook\'!B$2:B$3000)))'
     )
 
-    openxlsx::writeFormula(wb, paste0(q, " Codes"), x = count_formula, startCol = 4, startRow = 2)
-    openxlsx::writeFormula(wb, paste0(q, " Codes"), x = perc_formula, startCol = 5, startRow = 2)
+    openxlsx::writeFormula(wb, "Codes", x = count_formula, startCol = 4, startRow = 2)
+    openxlsx::writeFormula(wb, "Codes", x = perc_formula, startCol = 5, startRow = 2)
 
-    openxlsx::addStyle(wb, paste0(q, " Codes"), openxlsx::createStyle(numFmt = "0%"),
+    openxlsx::addStyle(wb,"Codes", openxlsx::createStyle(numFmt = "0%"),
                        rows = 2:(nrow(codes_sheet) + 1), cols = 5, gridExpand = TRUE, stack = TRUE)
 
 

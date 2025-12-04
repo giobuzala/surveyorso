@@ -50,7 +50,7 @@ import_coding <- function(data, x, path = "Data", id_var = Vrid) {
   }
 
   # Load and clean coding sheet
-  coded <- openxlsx::read.xlsx(file_in, sheet = paste0(x_name, " Coding Workbook")) %>%
+  coded <- openxlsx::read.xlsx(file_in, sheet = "Coding Workbook") %>%
     dplyr::rename(Code = `Code(s)`) %>%
     dplyr::mutate(
       Code = Code %>%
@@ -62,7 +62,7 @@ import_coding <- function(data, x, path = "Data", id_var = Vrid) {
     )
 
   # Load key for code-to-bin mapping
-  key <- openxlsx::read.xlsx(file_in, sheet = paste0(x_name, " Codes")) %>%
+  key <- openxlsx::read.xlsx(file_in, sheet = "Codes") %>%
     dplyr::select(Code, Bin)
 
   # Process coded variables ----
