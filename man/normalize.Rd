@@ -37,7 +37,7 @@ This function rescales variables to the 0 to 1 range. It supports flipping of sc
 \itemize{
 \item Numeric variables are min–max scaled to 0 to 1.
 \item Factor variables are converted to numeric order and evenly spaced between 0 and 1.
-\item Levels listed in \code{outside_scale} (e.g., "Don't know") are assigned a value of 0.5.
+\item Levels listed in \code{outside_scale} (e.g., \verb{Don't know}) are assigned a value of 0.5.
 }
 }
 \examples{

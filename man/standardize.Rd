@@ -37,7 +37,7 @@ This function standardizes variables to have mean of 0 and standard deviation of
 \itemize{
 \item Numeric variables are z-scored.
 \item Factor variables are converted to numeric order and then standardized.
-\item Levels in \code{outside_scale} are assigned to the midpoint of the valid range before transformation.
+\item Levels in \code{outside_scale} (e.g., \verb{Don't know}) are assigned to the midpoint of the valid range before transformation.
 }
 }
 \examples{
