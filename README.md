@@ -16,7 +16,7 @@ Function interfaces may change, and documentation is evolving alongside the code
 
 ## Documentation
 
-All functions are documented using `roxygen2`. Longer workflows will be added as vignettes over time.
+All functions are documented with examples using `roxygen2`. Longer workflows will be added as vignettes over time.
 
 ## License
 
