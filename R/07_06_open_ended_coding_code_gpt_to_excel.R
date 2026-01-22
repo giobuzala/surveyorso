@@ -58,7 +58,7 @@ code_gpt_to_excel <- function(coded_tbl, path = "Data") {
   # Load workbook
   wb <- openxlsx::loadWorkbook(file_in)
   q_sheet <- openxlsx::read.xlsx(file_in,
-                                 sheet = paste0(x_name, " Coding Workbook"),
+                                 sheet = paste0("Coding Workbook"),
                                  check.names = FALSE)
 
   # Process ----
@@ -75,7 +75,7 @@ code_gpt_to_excel <- function(coded_tbl, path = "Data") {
 
   # Write codes into column C
   openxlsx::writeData(wb,
-                      sheet = paste0(x_name, " Coding Workbook"),
+                      sheet = paste0("Coding Workbook"),
                       x = codes_to_write,
                       startCol = 3, startRow = 2,
                       colNames = FALSE, rowNames = FALSE,

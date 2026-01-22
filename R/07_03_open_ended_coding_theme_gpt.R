@@ -6,7 +6,7 @@
 #'
 #' @param data A data frame containing the survey data.
 #' @param x The open-ended variable to analyze.
-#' @param n Integer; number of themes to return. Defaults to `10`.
+#' @param n Integer; number of themes to return. If `NULL` (default), the model determines an appropriate number of themes based on the responses.
 #' @param sample Optional integer specifying the number of responses to sample for analysis. If `NULL`, all valid responses are used.
 #' @param model Character string; the OpenAI model to use. Defaults to `gpt-4o`.
 #' @param instructions Optional string; additional instructions for coding.

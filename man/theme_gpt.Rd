@@ -18,7 +18,7 @@ theme_gpt(
 
 \item{x}{The open-ended variable to analyze.}
 
-\item{n}{Integer; number of themes to return. Defaults to \code{10}.}
+\item{n}{Integer; number of themes to return. If \code{NULL} (default), the model determines an appropriate number of themes based on the responses.}
 
 \item{sample}{Optional integer specifying the number of responses to sample for analysis. If \code{NULL}, all valid responses are used.}
 
