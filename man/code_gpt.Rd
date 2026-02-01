@@ -8,7 +8,7 @@ code_gpt(
   data,
   x,
   theme_list,
-  id_var = Vrid,
+  id_var,
   n = NULL,
   batch_size = 100,
   model = "gpt-4o",
@@ -49,6 +49,6 @@ Use \code{code_gpt_to_df()} to update the dataset with results or \code{code_gpt
 }
 \examples{
 # Code Q5
-Q5_coded <- code_gpt(data = survey_data, x = Q5, theme_list = theme_list, id_var = Vrid, model = "gpt-4o")
+Q5_coded <- code_gpt(data = survey_data, x = Q5, theme_list = theme_list, id_var = id_var, model = "gpt-4o")
 
 }

@@ -4,7 +4,7 @@
 \alias{import_coding}
 \title{\strong{Import a coding workbook and merge coded variable into the dataset}}
 \usage{
-import_coding(data, x, path = "Data", id_var = Vrid)
+import_coding(data, x, path = "Data", id_var)
 }
 \arguments{
 \item{data}{A data frame containing at least the \code{id_var} and original question column.}
@@ -13,7 +13,7 @@ import_coding(data, x, path = "Data", id_var = Vrid)
 
 \item{path}{Directory containing the workbook. Defaults to \code{"Data"}.}
 
-\item{id_var}{ID variable in the dataset. Defaults to \code{Vrid}.}
+\item{id_var}{ID variable in the dataset.}
 }
 \value{
 A data frame merged with new coded columns. If unknown codes are detected, the function prints a table of respondent IDs and problematic codes and then stops with an error.
@@ -26,5 +26,5 @@ This function handles one question at a time.
 }
 \examples{
 # Import coding workbook for Q5 and merge the results into the dataset
-data <- import_coding(data = survey_data, x = Q5, path = "Data", id_var = Vrid)
+data <- import_coding(data = survey_data, x = Q5, path = "Data", id_var = id_var)
 }

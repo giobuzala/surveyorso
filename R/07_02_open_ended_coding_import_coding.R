@@ -6,7 +6,7 @@
 #' @param data A data frame containing at least the `id_var` and original question column.
 #' @param x A variable to be imported (e.g., `Q5`).
 #' @param path Directory containing the workbook. Defaults to `"Data"`.
-#' @param id_var ID variable in the dataset. Defaults to `Vrid`.
+#' @param id_var ID variable in the dataset.
 #'
 #' @details
 #' This function handles one question at a time.
@@ -16,9 +16,9 @@
 #'
 #' @examples
 #' # Import coding workbook for Q5 and merge the results into the dataset
-#' data <- import_coding(data = survey_data, x = Q5, path = "Data", id_var = Vrid)
+#' data <- import_coding(data = survey_data, x = Q5, path = "Data", id_var = id_var)
 
-import_coding <- function(data, x, path = "Data", id_var = Vrid) {
+import_coding <- function(data, x, path = "Data", id_var) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "dplyr", "tidyr", "stringr", "openxlsx")

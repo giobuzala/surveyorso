@@ -25,11 +25,11 @@
 #'
 #' @examples
 #' # Code Q5
-#' Q5_coded <- code_gpt(data = survey_data, x = Q5, theme_list = theme_list, id_var = Vrid, model = "gpt-4o")
+#' Q5_coded <- code_gpt(data = survey_data, x = Q5, theme_list = theme_list, id_var = id_var, model = "gpt-4o")
 #'
 #' @export
 
-code_gpt <- function(data, x, theme_list, id_var = Vrid, n = NULL, batch_size = 100, model = "gpt-4o", instructions = NULL) {
+code_gpt <- function(data, x, theme_list, id_var, n = NULL, batch_size = 100, model = "gpt-4o", instructions = NULL) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "tibble", "dplyr", "purrr", "stringr", "httr2")

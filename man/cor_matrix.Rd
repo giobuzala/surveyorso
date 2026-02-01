@@ -7,7 +7,7 @@
 cor_matrix(
   data,
   weight = NULL,
-  id_var = Vrid,
+  id_var,
   method = "pearson",
   round = 3,
   half = TRUE,
@@ -19,7 +19,7 @@ cor_matrix(
 
 \item{weight}{(Optional) Name of the weight variable. If \code{NULL}, computes unweighted correlations.}
 
-\item{id_var}{ID column name to exclude (defaults to \code{Vrid}).}
+\item{id_var}{ID column name to exclude.}
 
 \item{method}{Correlation method (\verb{pearson"}, \code{"spearman"}, or \code{"kendall"}).}
 

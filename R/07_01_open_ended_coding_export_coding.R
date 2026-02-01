@@ -7,10 +7,10 @@
 #' - To export for multiple variables at once, provide a vector, e.g., `x = c(var1, var2, var3)`.
 #' - Optionally, you can include a `filter` variable that will appear in the workbook for easier sorting or filtering.
 #'
-#' @param data A data frame containing the survey responses. Must include a `Vrid` column and the variables specified in `x`.
+#' @param data A data frame containing the survey responses. Must include a respondent ID (`id_var`) column and the variables specified in `x`.
 #' @param x A single variable or multiple variables specifying the open-ended question(s) to export.
 #' @param path File path where the workbook(s) will be saved. Defaults to `"Data"`.
-#' @param id_var ID variable in the dataset. Defaults to `Vrid`.
+#' @param id_var ID variable in the dataset.
 #' @param filter (Optional) A single variable used to group or filter responses in the exported workbook.
 #'
 #' @details
@@ -34,7 +34,7 @@
 #'
 #' @export
 
-export_coding <- function(data, x, path = "Data", id_var = Vrid, filter = NULL) {
+export_coding <- function(data, x, path = "Data", id_var, filter = NULL) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "tibble", "tidyselect", "dplyr", "openxlsx")

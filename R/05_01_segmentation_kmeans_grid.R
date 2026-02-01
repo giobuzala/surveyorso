@@ -11,7 +11,7 @@
 #' @param data A data frame of numeric variables to cluster. Non-numeric columns are dropped.
 #' @param pc_range Optional numeric vector of principal component counts. If `NULL`, no PCA is applied.
 #' @param k_range Numeric vector of cluster counts to test. Defaults to `2:6`.
-#' @param id_var ID variable to drop before clustering. Defaults to `Vrid`.
+#' @param id_var ID variable to drop before clustering.
 #'
 #' @details
 #' The function automatically excludes the variable named "weight" from the clustering input.
@@ -25,7 +25,7 @@
 #'
 #' @export
 
-kmeans_grid <- function(data, pc_range = NULL, k_range = 2:6, id_var = Vrid) {
+kmeans_grid <- function(data, pc_range = NULL, k_range = 2:6, id_var) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "dplyr", "cluster")

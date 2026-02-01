@@ -4,16 +4,16 @@
 \alias{export_coding}
 \title{\strong{Export a coding workbook}}
 \usage{
-export_coding(data, x, path = "Data", id_var = Vrid, filter = NULL)
+export_coding(data, x, path = "Data", id_var, filter = NULL)
 }
 \arguments{
-\item{data}{A data frame containing the survey responses. Must include a \code{Vrid} column and the variables specified in \code{x}.}
+\item{data}{A data frame containing the survey responses. Must include a respondent ID (\code{id_var}) column and the variables specified in \code{x}.}
 
 \item{x}{A single variable or multiple variables specifying the open-ended question(s) to export.}
 
 \item{path}{File path where the workbook(s) will be saved. Defaults to \code{"Data"}.}
 
-\item{id_var}{ID variable in the dataset. Defaults to \code{Vrid}.}
+\item{id_var}{ID variable in the dataset.}
 
 \item{filter}{(Optional) A single variable used to group or filter responses in the exported workbook.}
 }

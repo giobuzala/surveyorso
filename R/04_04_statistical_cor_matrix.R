@@ -5,7 +5,7 @@
 #'
 #' @param data A data frame containing variables to correlate.
 #' @param weight (Optional) Name of the weight variable. If `NULL`, computes unweighted correlations.
-#' @param id_var ID column name to exclude (defaults to `Vrid`).
+#' @param id_var ID column name to exclude.
 #' @param method Correlation method (`pearson"`, `"spearman"`, or `"kendall"`).
 #' @param half Logical; if `TRUE` (default), displays only the lower triangle. If `FALSE`, displays the full matrix.
 #' @param round Number of decimal places to round correlations to.
@@ -26,7 +26,7 @@
 #'
 #' @export
 
-cor_matrix <- function(data, weight = NULL, id_var = Vrid, method = "pearson", round = 3, half = TRUE, min = NULL) {
+cor_matrix <- function(data, weight = NULL, id_var, method = "pearson", round = 3, half = TRUE, min = NULL) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "stats", "wCorr")

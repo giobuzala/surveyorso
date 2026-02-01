@@ -4,7 +4,7 @@
 \alias{kmeans_grid}
 \title{\strong{Run a grid of k-means clustering models}}
 \usage{
-kmeans_grid(data, pc_range = NULL, k_range = 2:6, id_var = Vrid)
+kmeans_grid(data, pc_range = NULL, k_range = 2:6, id_var)
 }
 \arguments{
 \item{data}{A data frame of numeric variables to cluster. Non-numeric columns are dropped.}
@@ -13,7 +13,7 @@ kmeans_grid(data, pc_range = NULL, k_range = 2:6, id_var = Vrid)
 
 \item{k_range}{Numeric vector of cluster counts to test. Defaults to \code{2:6}.}
 
-\item{id_var}{ID variable to drop before clustering. Defaults to \code{Vrid}.}
+\item{id_var}{ID variable to drop before clustering.}
 }
 \value{
 A data frame summarizing results for each combination of PCs and clusters.
