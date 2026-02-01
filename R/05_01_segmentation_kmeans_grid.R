@@ -25,7 +25,7 @@
 #'
 #' @export
 
-kmeans_grid <- function(data, pc_range = NULL, k_range = 2:6, id_var) {
+kmeans_grid <- function(data, pc_range = NULL, k_range = 2:6, id_var = NULL) {
   # Check required packages ----
 
   required_pkgs <- c("rlang", "dplyr", "cluster")
@@ -48,8 +48,13 @@ kmeans_grid <- function(data, pc_range = NULL, k_range = 2:6, id_var) {
   }
 
   # Drop ID and weight variables if present
-  id_var <- rlang::as_name(rlang::enquo(id_var))
-  drop_cols <- intersect(c(id_var, "weight"), names(data))
+  drop_cols <- "weight"
+  if (!is.null(id_var)) {
+    id_var <- rlang::as_name(rlang::enquo(id_var))
+    drop_cols <- c(drop_cols, id_var)
+  }
+  drop_cols <- intersect(drop_cols, names(data))
+
   if (length(drop_cols) > 0) {
     data <- data[, setdiff(names(data), drop_cols), drop = FALSE]
   }

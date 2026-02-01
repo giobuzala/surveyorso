@@ -113,7 +113,11 @@ export_coding <- function(data, x, path = "Data", id_var, filter = NULL) {
          call. = FALSE)
   }
 
-  # Check that ID variable exists if provided
+  # Check that ID variable is specified and exists
+  if (missing(id_var)) {
+    stop("ID variable (`id_var`) must be provided and must identify a unique respondent ID column.", call. = FALSE)
+  }
+
   if (!(id_var_name %in% colnames(data))) {
     stop("ID variable ", id_var_name, " does not exist in the dataset.", call. = FALSE)
   }

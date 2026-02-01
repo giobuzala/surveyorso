@@ -48,6 +48,10 @@ cor_matrix <- function(data, weight = NULL, id_var, method = "pearson", round = 
     stop("Weight variable ", weight_var, " does not exist in the dataset.", call. = FALSE)
   }
 
+  if (missing(id_var)) {
+    stop("ID variable (`id_var`) must be provided and must identify a unique respondent ID column.", call. = FALSE)
+  }
+
   if (!id_var %in% names(data)) {
     stop("ID variable ", id_var, " does not exist in the dataset.", call. = FALSE)
   }

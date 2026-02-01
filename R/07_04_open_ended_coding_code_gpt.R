@@ -60,6 +60,9 @@ code_gpt <- function(data, x, theme_list, id_var, n = NULL, batch_size = 100, mo
     )
   }
 
+  # Require ID variable
+  if (missing(id_var)) {stop("ID variable (`id_var`) must be provided and must identify a unique respondent ID column.", call. = FALSE)}
+
   # Capture variable expressions
   x_name <- rlang::as_name(rlang::enquo(x))
   id_name <- rlang::as_name(rlang::enquo(id_var))

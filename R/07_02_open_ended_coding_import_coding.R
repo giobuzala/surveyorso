@@ -44,7 +44,11 @@ import_coding <- function(data, x, path = "Data", id_var) {
     stop(paste0(x_name, " Coding Workbook.xlsx doesn't exist in the folder ", path, "."), call. = FALSE)
   }
 
-  # Error if id_var not found
+  # Check that ID variable is specified and exists
+  if (missing(id_var)) {
+    stop("ID variable (`id_var`) must be provided and must identify a unique respondent ID column.", call. = FALSE)
+  }
+
   if (!(id_var_name %in% names(data))) {
     stop("ID variable ", id_var_name, " does not exist in the coding workbook.", call. = FALSE)
   }

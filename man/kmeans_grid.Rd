@@ -4,7 +4,7 @@
 \alias{kmeans_grid}
 \title{\strong{Run a grid of k-means clustering models}}
 \usage{
-kmeans_grid(data, pc_range = NULL, k_range = 2:6, id_var)
+kmeans_grid(data, pc_range = NULL, k_range = 2:6, id_var = NULL)
 }
 \arguments{
 \item{data}{A data frame of numeric variables to cluster. Non-numeric columns are dropped.}
