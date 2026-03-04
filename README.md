@@ -61,7 +61,7 @@ To use the GPT-assisted functions, set your OpenAI API key in the current R sess
 
 ```r
 # Set your OpenAI API key in the current R session
-Sys.setenv(OPENAI_API_KEY="YOUR_KEY_HERE")
+Sys.setenv(OPENAI_API_KEY="your_api_key")
 
 # 1) Create a draft theme list
 theme_list <- theme_gpt(survey_data, x = Q5)
