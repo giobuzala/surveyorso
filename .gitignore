@@ -2,6 +2,7 @@
 .Rproj.user
 .Rhistory
 .RData
+.positai
 
 # OAuth tokens and authentication caches
 .httr-oauth
