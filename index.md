@@ -34,13 +34,13 @@ pak::pak("giobuzala/surveyorso")
 
 ### Tabulation
 
-- **Single response questions**:
+- Single response questions:
   [`tab()`](https://giobuzala.github.io/surveyorso/reference/tab.md),
   [`tab_all()`](https://giobuzala.github.io/surveyorso/reference/tab_all.md)
-- **Multiple response (pick-any) questions**:
+- Multiple response (pick-any) questions:
   [`tab_mr()`](https://giobuzala.github.io/surveyorso/reference/tab_mr.md),
   [`tab_mr_all()`](https://giobuzala.github.io/surveyorso/reference/tab_mr_all.md)
-- **Grid questions**:
+- Grid questions:
   [`tab_grid()`](https://giobuzala.github.io/surveyorso/reference/tab_grid.md),
   [`tab_grid_all()`](https://giobuzala.github.io/surveyorso/reference/tab_grid_all.md),
   [`tab_grid_t()`](https://giobuzala.github.io/surveyorso/reference/tab_grid_t.md),
@@ -48,43 +48,43 @@ pak::pak("giobuzala/surveyorso")
 
 ### Tracking
 
-- **Merging and stacking waves**:
+- Merging and stacking waves:
   [`merge_waves()`](https://giobuzala.github.io/surveyorso/reference/merge_waves.md)
 
 ### Statistical
 
-- **Standardization and normalization**:
+- Standardization and normalization:
   [`standardize()`](https://giobuzala.github.io/surveyorso/reference/standardize.md),
   [`normalize()`](https://giobuzala.github.io/surveyorso/reference/normalize.md)
-- **Feature engineering**:
+- Feature engineering:
   [`one_hot_encode()`](https://giobuzala.github.io/surveyorso/reference/one_hot_encode.md)
-- **Correlation tables**:
+- Correlation tables:
   [`cor_matrix()`](https://giobuzala.github.io/surveyorso/reference/cor_matrix.md)
-- **Correlation heatmaps**:
+- Correlation heatmaps:
   [`cor_heatmap()`](https://giobuzala.github.io/surveyorso/reference/cor_heatmap.md)
 
 ### Segmentation
 
-- **K-means grid search**:
+- K-means grid search:
   [`kmeans_grid()`](https://giobuzala.github.io/surveyorso/reference/kmeans_grid.md)
 
 ### Data quality
 
-- **Straightlining detection**:
+- Straightlining detection:
   [`strline()`](https://giobuzala.github.io/surveyorso/reference/strline.md)
-- **Low-quality open-ended response detection (API-based)**:
+- Low-quality open-ended response detection (API-based):
   [`lowqual_gpt()`](https://giobuzala.github.io/surveyorso/reference/lowqual_gpt.md)
 
 ### Open-ended coding
 
 This package supports both:
 
-- **Excel workbooks** for human coding
+- Excel workbooks for human coding
   ([`export_coding()`](https://giobuzala.github.io/surveyorso/reference/export_coding.md)
   →
   [`import_coding()`](https://giobuzala.github.io/surveyorso/reference/import_coding.md)),
   and
-- **GPT-assisted workflows** to generate themes and assign codes
+- GPT-assisted workflows to generate themes and assign codes
   ([`theme_gpt()`](https://giobuzala.github.io/surveyorso/reference/theme_gpt.md)
   →
   [`code_gpt()`](https://giobuzala.github.io/surveyorso/reference/code_gpt.md)).
@@ -115,7 +115,8 @@ All functions are documented with examples using `roxygen2`. Browse help
 pages such as
 [`?tab`](https://giobuzala.github.io/surveyorso/reference/tab.md),
 [`?standardize`](https://giobuzala.github.io/surveyorso/reference/standardize.md),
-`?strilne`, and
+[`?strline`](https://giobuzala.github.io/surveyorso/reference/strline.md),
+and
 [`?code_gpt`](https://giobuzala.github.io/surveyorso/reference/code_gpt.md).
 
 ## License

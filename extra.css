@@ -1,0 +1,18 @@
+/* Main body */
+body {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Sidebar */
+.template-home aside h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.template-home aside .list-unstyled {
+  margin-bottom: 1.25rem;
+}

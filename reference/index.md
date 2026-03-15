@@ -138,7 +138,7 @@
   [`code_gpt()`](https://giobuzala.github.io/surveyorso/reference/code_gpt.md)
   results to Excel workbook**
 
-## Helpers
+## Miscellaneous
 
 - [`combine()`](https://giobuzala.github.io/surveyorso/reference/combine.md)
   :
