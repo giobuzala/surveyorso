@@ -26,36 +26,36 @@ pak::pak("giobuzala/surveyorso")
 
 ### Tabulation
 
-- **Single response questions**: `tab()`, `tab_all()`
-- **Multiple response (pick-any) questions**: `tab_mr()`, `tab_mr_all()`
-- **Grid questions**: `tab_grid()`, `tab_grid_all()`, `tab_grid_t()`, `tab_grid_t_all()`
+- Single response questions: `tab()`, `tab_all()`
+- Multiple response (pick-any) questions: `tab_mr()`, `tab_mr_all()`
+- Grid questions: `tab_grid()`, `tab_grid_all()`, `tab_grid_t()`, `tab_grid_t_all()`
 
 ### Tracking
 
-- **Merging and stacking waves**: `merge_waves()`
+- Merging and stacking waves: `merge_waves()`
 
 ### Statistical
 
-- **Standardization and normalization**: `standardize()`, `normalize()`
-- **Feature engineering**: `one_hot_encode()`
-- **Correlation tables**: `cor_matrix()`
-- **Correlation heatmaps**: `cor_heatmap()`
+- Standardization and normalization: `standardize()`, `normalize()`
+- Feature engineering: `one_hot_encode()`
+- Correlation tables: `cor_matrix()`
+- Correlation heatmaps: `cor_heatmap()`
 
 ### Segmentation
 
-- **K-means grid search**: `kmeans_grid()`
+- K-means grid search: `kmeans_grid()`
 
 ### Data quality
 
-- **Straightlining detection**: `strline()`
-- **Low-quality open-ended response detection (API-based)**: `lowqual_gpt()`
+- Straightlining detection: `strline()`
+- Low-quality open-ended response detection (API-based): `lowqual_gpt()`
 
 ### Open-ended coding
 
 This package supports both:
 
-- **Excel workbooks** for human coding (`export_coding()` → `import_coding()`), and
-- **GPT-assisted workflows** to generate themes and assign codes (`theme_gpt()` → `code_gpt()`).
+- Excel workbooks for human coding (`export_coding()` → `import_coding()`), and
+- GPT-assisted workflows to generate themes and assign codes (`theme_gpt()` → `code_gpt()`).
 
 To use the GPT-assisted functions, set your OpenAI API key in the current R session or store it in a local `.Renviron` file for persistent use.
 
@@ -77,7 +77,7 @@ code_gpt(survey_data, x = Q5, theme_list = theme_list) %>%
 
 ## Documentation
 
-All functions are documented with examples using `roxygen2`. Browse help pages such as `?tab`, `?standardize`, `?strilne`, and `?code_gpt`.
+All functions are documented with examples using `roxygen2`. Browse help pages such as `?tab`, `?standardize`, `?strline`, and `?code_gpt`.
 
 ## License
 

@@ -6,7 +6,7 @@ template:
 
 navbar:
   structure:
-    left: [reference]
+    left: [home, reference]
     right: [search, github]
   components:
     github:
@@ -56,7 +56,7 @@ reference:
       - code_gpt_to_df
       - code_gpt_to_excel
 
-  - title: Helpers
+  - title: Miscellaneous
     contents:
       - combine
 

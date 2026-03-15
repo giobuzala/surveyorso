@@ -77,7 +77,7 @@ code_gpt(survey_data, x = Q5, theme_list = theme_list) %>%
 
 ## Documentation
 
-All functions are documented with examples using `roxygen2`. Browse help pages such as `?tab`, `?standardize`, `?strilne`, and `?code_gpt`.
+All functions are documented with examples using `roxygen2`. Browse help pages such as `?tab`, `?standardize`, `?strline`, and `?code_gpt`.
 
 ## License
 
