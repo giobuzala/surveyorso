@@ -1,4 +1,4 @@
-# surveyorso <img src="man/figures/logo.png" align="right" height="138" alt="" />
+# surveyorso
 
 `surveyorso` is an R package providing a unified toolkit for end-to-end survey research workflows.
 
