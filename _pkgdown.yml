@@ -1,7 +1,5 @@
 url: https://giobuzala.github.io/surveyorso/
-
-home:
-  title: surveyorso
+title: surveyorso
 
 template:
   bootstrap: 5
