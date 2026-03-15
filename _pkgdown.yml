@@ -1,0 +1,67 @@
+url: https://giobuzala.github.io/surveyorso/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [reference]
+    right: [search, github]
+  components:
+    github:
+      icon: fab fa-github
+      href: https://github.com/giobuzala/surveyorso
+      aria-label: GitHub
+
+reference:
+  - title: Tabulation
+    contents:
+      - tab
+      - tab_all
+      - tab_mr
+      - tab_mr_all
+      - tab_grid
+      - tab_grid_all
+      - tab_grid_t
+      - tab_grid_t_all
+
+  - title: Tracking
+    contents:
+      - merge_waves
+
+  - title: Statistical
+    contents:
+      - standardize
+      - normalize
+      - one_hot_encode
+      - cor_matrix
+      - cor_heatmap
+
+  - title: Segmentation
+    contents:
+      - kmeans_grid
+
+  - title: Data quality
+    contents:
+      - strline
+      - lowqual_gpt
+
+  - title: Open-ended coding
+    contents:
+      - export_coding
+      - import_coding
+      - theme_gpt
+      - code_gpt
+      - code_gpt_to_df
+      - code_gpt_to_excel
+
+  - title: Helpers
+    contents:
+      - combine
+
+  - title: S3 methods
+    contents:
+      - print.tab_result
+      - print.tab_mr_result
+      - print.tab_grid_result
+      - print.tab_grid_t_result

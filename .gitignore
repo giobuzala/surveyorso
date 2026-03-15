@@ -15,3 +15,6 @@
 
 # Local documentation containing sensitive information
 rstudio-surveyorso GitHub PAT.txt
+
+# pkgdown output
+docs/
