@@ -9,11 +9,6 @@ run advanced analytics, and prepare outputs for reporting, with built-in
 support for SPSS-style metadata such as data types, variable labels, and
 value levels.
 
-`surveyorso` is intentionally opinionated. While it reflects common
-survey research workflows, it may require customization for specific
-projects. The package is designed to be forked, extended, and adapted to
-fit different survey research environments.
-
 ## Installation
 
 Install from GitHub using `remotes`:
@@ -84,14 +79,13 @@ This package supports both:
   →
   [`import_coding()`](https://giobuzala.github.io/surveyorso/reference/import_coding.md)),
   and
-- GPT-assisted workflows to generate themes and assign codes
+- AI-assisted workflows to generate themes and assign codes
   ([`theme_gpt()`](https://giobuzala.github.io/surveyorso/reference/theme_gpt.md)
   →
   [`code_gpt()`](https://giobuzala.github.io/surveyorso/reference/code_gpt.md)).
 
-To use the GPT-assisted functions, set your OpenAI API key in the
-current R session or store it in a local `.Renviron` file for persistent
-use.
+To use the AI-assisted functions, set your OpenAI API key in the current
+R session or store it in a local `.Renviron` file for persistent use.
 
 ``` r
 # Set your OpenAI API key in the current R session
@@ -109,6 +103,11 @@ code_gpt(survey_data, x = Q5, theme_list = theme_list) %>%
   code_gpt_to_excel(path = "Data")
 ```
 
+### Miscellaneous
+
+- Combining variables:
+  [`combine()`](https://giobuzala.github.io/surveyorso/reference/combine.md)
+
 ## Documentation
 
 All functions are documented with examples using `roxygen2`. Browse help
@@ -118,7 +117,3 @@ pages such as
 [`?strline`](https://giobuzala.github.io/surveyorso/reference/strline.md),
 and
 [`?code_gpt`](https://giobuzala.github.io/surveyorso/reference/code_gpt.md).
-
-## License
-
-MIT License

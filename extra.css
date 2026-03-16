@@ -1,9 +1,150 @@
-/* Main body */
+/* ==========================================================================
+   Global / site-wide defaults
+   ========================================================================== */
+
+/* Main body: sets the base font stack + page background used everywhere. */
 body {
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f4f4f3;
 }
 
-/* Sidebar */
+/* ==========================================================================
+   Top navigation bar (Bootstrap / pkgdown navbar)
+   ========================================================================== */
+
+/* Navbar background color (the `!important` ensures it wins over Bootstrap). */
+.navbar {
+  background-color: #1d5560 !important;
+}
+
+/* Navbar text/icon colors: force all common navbar elements to the same light
+   foreground so contrast stays consistent. */
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-text,
+.navbar a,
+.navbar .fa,
+.navbar .fab,
+.navbar .fas,
+.navbar .text-muted,
+.navbar .pkgdown-version {
+  color: #f4f4f3 !important;
+}
+
+/* Slightly bolder typography for the brand + primary nav links. */
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-text {
+  font-weight: 500;
+}
+
+/* GitHub icon: make it readable + give it some spacing from prior items. */
+.navbar .fab.fa-github {
+  font-size: 1.55rem;
+  margin-left: 0.5rem;
+}
+
+/* ==========================================================================
+   Page header + logo layout (home/articles/reference pages)
+   ========================================================================== */
+
+/* Convert pkgdown's header area into a 2-column grid: title on the left, logo
+   on the right. Also removes pkgdown's default underline so we can replace it
+   with a custom divider line that "meets" the logo. */
+.template-reference-index .page-header,
+.template-reference-topic .page-header,
+.template-reference .page-header,
+.template-article .page-header,
+.template-home .page-header {
+  /* Small tuning knobs used below. Adjust here if you want to re-balance
+     spacing without hunting through multiple rules. */
+  --page-header-gap: 1.25rem;
+  --page-header-line-overshoot: 1.3rem;
+  --page-header-logo-nudge: 0.6rem;
+  --page-header-logo-drop: 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1px;
+  column-gap: var(--page-header-gap);
+  row-gap: 0.75rem;
+  align-items: start;
+  padding: 1.25rem 0 0.75rem 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 0 !important; /* remove pkgdown's default underline */
+}
+
+/* Divider line: drawn via a pseudo-element so it can extend into the column gap
+   and visually connect with the logo. */
+.template-reference-index .page-header::after,
+.template-reference-topic .page-header::after,
+.template-reference .page-header::after,
+.template-article .page-header::after,
+.template-home .page-header::after {
+  content: "";
+  grid-column: 1 / 2;
+  grid-row: 2;
+  align-self: stretch;
+  height: 1px;
+  background: rgba(29, 85, 96, 0.35);
+  /* Extend the line into the column gap so it visually reaches the logo. */
+  width: calc(100% + var(--page-header-gap) + var(--page-header-line-overshoot));
+  margin-right: calc(-1 * (var(--page-header-gap) + var(--page-header-line-overshoot)));
+}
+
+/* Page title (H1): keep it in the left column and use the brand color. */
+.template-reference-index .page-header h1,
+.template-reference-topic .page-header h1,
+.template-reference .page-header h1,
+.template-article .page-header h1,
+.template-home .page-header h1 {
+  margin-bottom: 0;
+  grid-column: 1 / 2;
+  grid-row: 1;
+  color: #1d5560;
+}
+
+/* Reference index only: rename the default "Package index" heading to
+   "Functions" without changing the underlying HTML.
+
+   Technique: hide the original text by making the H1 transparent, then overlay
+   a replacement label via ::after. */
+.template-reference-index .page-header h1 {
+  position: relative;
+  color: transparent;
+}
+
+.template-reference-index .page-header h1::after {
+  content: "Functions";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #1d5560;
+}
+
+/* Header logo: placed in the right column, spanning both rows so it can align
+   with the title and the divider line. */
+.template-reference-index .page-header img.logo,
+.template-reference-topic .page-header img.logo,
+.template-reference .page-header img.logo,
+.template-article .page-header img.logo,
+.template-home .page-header img.logo {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  align-self: end;
+  justify-self: end;
+  /* Nudge logo left so the divider line meets its lower-left corner. */
+  margin-left: calc(-1 * var(--page-header-logo-nudge));
+  transform: translateY(var(--page-header-logo-drop));
+  max-height: 144px;
+  height: auto;
+  width: auto;
+}
+
+/* ==========================================================================
+   Sidebar styles
+   ========================================================================== */
+
+/* Home page sidebar heading style: small uppercase section titles. */
 .template-home aside h2 {
   font-size: 1rem;
   font-weight: 700;
@@ -13,6 +154,51 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Spacing between sidebar lists on the home page. */
 .template-home aside .list-unstyled {
   margin-bottom: 1.25rem;
+}
+
+/* Reference page TOC (`#toc`): remove Bootstrap "card" look and restyle to match
+   the home sidebar (transparent, no border, tighter spacing). */
+#toc {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* TOC heading: same treatment as home sidebar headings. */
+#toc h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+/* TOC list container: remove default indentation and match spacing. */
+#toc .nav {
+  padding-left: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* TOC links: make them look like plain links (no pills/background). */
+#toc .nav-link {
+  padding: 0.25rem 0;
+  margin: 0;
+  color: #1d5560;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Hover/active states: underline on hover, slightly bolder when active. */
+#toc .nav-link:hover {
+  text-decoration: underline;
+}
+
+#toc .nav-link.active {
+  font-weight: 600;
+  color: #1d5560;
+  background: transparent !important;
 }
