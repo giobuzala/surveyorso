@@ -4,8 +4,6 @@
 
 It is designed for applied survey analysts who want fast, consistent, and reproducible ways to clean data, manage metadata, tabulate results, run advanced analytics, and prepare outputs for reporting, with built-in support for SPSS-style metadata such as data types, variable labels, and value levels.
 
-`surveyorso` is intentionally opinionated. While it reflects common survey research workflows, it may require customization for specific projects. The package is designed to be forked, extended, and adapted to fit different survey research environments.
-
 ## Installation
 
 Install from GitHub using `remotes`:
@@ -55,9 +53,9 @@ pak::pak("giobuzala/surveyorso")
 This package supports both:
 
 - Excel workbooks for human coding (`export_coding()` → `import_coding()`), and
-- GPT-assisted workflows to generate themes and assign codes (`theme_gpt()` → `code_gpt()`).
+- AI-assisted workflows to generate themes and assign codes (`theme_gpt()` → `code_gpt()`).
 
-To use the GPT-assisted functions, set your OpenAI API key in the current R session or store it in a local `.Renviron` file for persistent use.
+To use the AI-assisted functions, set your OpenAI API key in the current R session or store it in a local `.Renviron` file for persistent use.
 
 ```r
 # Set your OpenAI API key in the current R session
@@ -75,10 +73,10 @@ code_gpt(survey_data, x = Q5, theme_list = theme_list) %>%
   code_gpt_to_excel(path = "Data")
 ```
 
+### Miscellaneous
+
+- Combining variables: `combine()`
+
 ## Documentation
 
 All functions are documented with examples using `roxygen2`. Browse help pages such as `?tab`, `?standardize`, `?strline`, and `?code_gpt`.
-
-## License
-
-MIT License

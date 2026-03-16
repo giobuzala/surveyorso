@@ -6,9 +6,15 @@ template:
 
 navbar:
   structure:
-    left: [home, reference]
-    right: [search, github]
+    left: [home, functions]
+    right: [github]
   components:
+    home:
+      text: Home
+      href: index.html
+    functions:
+      text: Functions
+      href: reference/index.html
     github:
       icon: fab fa-github
       href: https://github.com/giobuzala/surveyorso

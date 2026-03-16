@@ -1,9 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
 ^pkgdown$
 ^_pkgdown\.yml$
 ^docs$
 ^\.github$
 ^\.positai$
 ^\.claude$
+^LICENSE\.md$
