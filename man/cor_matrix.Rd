@@ -21,7 +21,7 @@ cor_matrix(
 
 \item{id_var}{ID column name to exclude.}
 
-\item{method}{Correlation method (\verb{pearson"}, \code{"spearman"}, or \code{"kendall"}).}
+\item{method}{Correlation method (\code{"pearson"}, \code{"spearman"}, or \code{"kendall"}).}
 
 \item{round}{Number of decimal places to round correlations to.}
 

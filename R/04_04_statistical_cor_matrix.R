@@ -6,7 +6,7 @@
 #' @param data A data frame containing variables to correlate.
 #' @param weight (Optional) Name of the weight variable. If `NULL`, computes unweighted correlations.
 #' @param id_var ID column name to exclude.
-#' @param method Correlation method (`pearson"`, `"spearman"`, or `"kendall"`).
+#' @param method Correlation method (`"pearson"`, `"spearman"`, or `"kendall"`).
 #' @param half Logical; if `TRUE` (default), displays only the lower triangle. If `FALSE`, displays the full matrix.
 #' @param round Number of decimal places to round correlations to.
 #' @param min (Optional) Numeric threshold. If specified, correlations with |r| < min are replaced with NA.
