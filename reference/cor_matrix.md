@@ -34,7 +34,7 @@ cor_matrix(
 
 - method:
 
-  Correlation method (`pearson"`, `"spearman"`, or `"kendall"`).
+  Correlation method (`"pearson"`, `"spearman"`, or `"kendall"`).
 
 - round:
 
