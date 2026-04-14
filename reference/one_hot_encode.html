@@ -26,7 +26,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>One-hot encode categorical variables</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/giobuzala/surveyorso/blob/main/R/04_03_statistical_one_hot_encode.R" class="external-link"><code>R/04_03_statistical_one_hot_encode.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/giobuzala/surveyorso/blob/main/R/03_03_statistical_one_hot_encode.R" class="external-link"><code>R/03_03_statistical_one_hot_encode.R</code></a></small>
       <div class="d-none name"><code>one_hot_encode.Rd</code></div>
     </div>
 
@@ -72,11 +72,11 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># One-hot encode region and Q1_1 while keeping all original variables</span></span></span>
 <span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">one_hot_encode</span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">region</span>, <span class="va">Q1_1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: tidyselect, dplyr, stringr</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: dplyr, tidyselect, stringr</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># One-hot encode region and Q1_1, returning only the encoded columns</span></span></span>
 <span class="r-in"><span><span class="va">data_new</span> <span class="op">&lt;-</span> <span class="fu">one_hot_encode</span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">region</span>, <span class="va">Q1_1</span><span class="op">)</span>, keep_all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: tidyselect, dplyr, stringr</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: dplyr, tidyselect, stringr</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

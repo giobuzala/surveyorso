@@ -49,9 +49,9 @@ A data frame with one-hot encoded variables.
 ``` r
 # One-hot encode region and Q1_1 while keeping all original variables
 data <- one_hot_encode(data = data, c(region, Q1_1))
-#> Error: These packages are required but not installed: tidyselect, dplyr, stringr
+#> Error: These packages are required but not installed: dplyr, tidyselect, stringr
 
 # One-hot encode region and Q1_1, returning only the encoded columns
 data_new <- one_hot_encode(data = data, c(region, Q1_1), keep_all = FALSE)
-#> Error: These packages are required but not installed: tidyselect, dplyr, stringr
+#> Error: These packages are required but not installed: dplyr, tidyselect, stringr
 ```

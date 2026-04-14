@@ -68,9 +68,9 @@ causes Excel to slow down.
 ``` r
 # Export coding workbook for Q5
 export_coding(data = survey_data, x = Q5)
-#> Error: These packages are required but not installed: tidyselect, dplyr, openxlsx
+#> Error: These packages are required but not installed: dplyr, tidyselect, openxlsx
 
 # Export separate coding workbooks for Q5 and Q6
 export_coding(data = survey_data, x = c(Q5, Q6))
-#> Error: These packages are required but not installed: tidyselect, dplyr, openxlsx
+#> Error: These packages are required but not installed: dplyr, tidyselect, openxlsx
 ```

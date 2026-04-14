@@ -65,9 +65,9 @@ A data frame with standardized variables.
 ``` r
 # Standardize Q1 variable set with
 standardize(data = data, vars = starts_with("Q1_"))
-#> Error: These packages are required but not installed: tidyselect, dplyr
+#> Error: These packages are required but not installed: dplyr, tidyselect
 
 # Standardize Q1 and Q2 variable set with the scale order
 standardize(data = data, vars = c(Q1, Q2), flip = TRUE)
-#> Error: These packages are required but not installed: tidyselect, dplyr
+#> Error: These packages are required but not installed: dplyr, tidyselect
 ```

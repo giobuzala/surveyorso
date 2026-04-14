@@ -66,5 +66,5 @@ A data frame with normalized variables.
 ``` r
 # Normalize Q1 and Q2 with flipping the scale order
 normalize(data = data, vars = c(Q2, Q3), flip = TRUE)
-#> Error: These packages are required but not installed: tidyselect, dplyr
+#> Error: These packages are required but not installed: dplyr, tidyselect
 ```

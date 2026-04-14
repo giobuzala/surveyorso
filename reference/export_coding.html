@@ -36,7 +36,7 @@ Optionally, you can include a filter variable that will appear in the workbook f
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Export a coding workbook</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/giobuzala/surveyorso/blob/main/R/07_01_open_ended_coding_export_coding.R" class="external-link"><code>R/07_01_open_ended_coding_export_coding.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/giobuzala/surveyorso/blob/main/R/06_01_open_ended_coding_export_coding.R" class="external-link"><code>R/06_01_open_ended_coding_export_coding.R</code></a></small>
       <div class="d-none name"><code>export_coding.Rd</code></div>
     </div>
 
@@ -91,11 +91,11 @@ Optionally, you can include a filter variable that will appear in the workbook f
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Export coding workbook for Q5</span></span></span>
 <span class="r-in"><span><span class="fu">export_coding</span><span class="op">(</span>data <span class="op">=</span> <span class="va">survey_data</span>, x <span class="op">=</span> <span class="va">Q5</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: tidyselect, dplyr, openxlsx</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: dplyr, tidyselect, openxlsx</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Export separate coding workbooks for Q5 and Q6</span></span></span>
 <span class="r-in"><span><span class="fu">export_coding</span><span class="op">(</span>data <span class="op">=</span> <span class="va">survey_data</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Q5</span>, <span class="va">Q6</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: tidyselect, dplyr, openxlsx</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> These packages are required but not installed: dplyr, tidyselect, openxlsx</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
