@@ -21,7 +21,7 @@
 cor_heatmap <- function(cor_mat, exclude = NULL) {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "wCorr", "plotly")
+  required_pkgs <- c("dplyr", "rlang", "wCorr", "plotly")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",

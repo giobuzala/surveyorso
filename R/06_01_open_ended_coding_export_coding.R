@@ -37,7 +37,7 @@
 export_coding <- function(data, x, path = "Data", id_var, filter = NULL) {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "tibble", "tidyselect", "dplyr", "openxlsx")
+  required_pkgs <- c("dplyr", "rlang", "tibble", "tidyselect", "openxlsx")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",

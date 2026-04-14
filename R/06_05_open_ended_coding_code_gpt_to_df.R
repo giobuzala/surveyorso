@@ -30,7 +30,7 @@
 code_gpt_to_df <- function(coded_tbl) {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "dplyr", "tidyr", "stringr")
+  required_pkgs <- c("dplyr", "rlang", "tidyr", "stringr")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",

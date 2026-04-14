@@ -35,7 +35,7 @@
 lowqual_gpt <- function(data, x, batch_size = 100, model = "gpt-4o") {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "dplyr", "purrr", "stringr", "httr2", "jsonlite")
+  required_pkgs <- c("dplyr", "rlang", "purrr", "stringr", "httr2", "jsonlite")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",

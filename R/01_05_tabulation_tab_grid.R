@@ -32,7 +32,7 @@
 tab_grid <- function(data, x, weight = NULL, prop = TRUE, sort = NULL, top_bottom = T2, round = 3, numeric = FALSE) {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "tibble", "dplyr", "purrr", "crayon")
+  required_pkgs <- c("dplyr", "rlang", "tibble", "purrr", "crayon")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",

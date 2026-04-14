@@ -29,7 +29,7 @@ normalize <- function(data, vars = everything(), flip = FALSE, keep_all = TRUE,
                       outside_scale = c("Don't know", "Prefer not to say")) {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "tibble", "tidyselect", "dplyr")
+  required_pkgs <- c("dplyr", "rlang", "tibble", "tidyselect")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",

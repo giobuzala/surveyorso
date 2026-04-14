@@ -25,7 +25,7 @@
 strline <- function(data, x) {
   # Check required packages ----
 
-  required_pkgs <- c("rlang", "dplyr", "purrr", "stringr", "stats")
+  required_pkgs <- c("dplyr", "rlang", "purrr", "stringr", "stats")
   missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing_pkgs) > 0) {
     stop("These packages are required but not installed: ",
