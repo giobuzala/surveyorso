@@ -3,6 +3,8 @@
 
 devtools::document() # Rebuild roxygen2 documentation
 devtools::load_all() # Reload the package locally for testing
+pkgdown::build_site() # Rebuild pkgdown site from scratch
+
 
 #### Open help pages to verify documentation
 ## Tabulation functions ----
